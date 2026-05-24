@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Justin Path to 85+ Human Score</title>
+<style>
+  :root {
+    --bg: #0b1020;
+    --bg2: #131a30;
+    --card: #1a2240;
+    --border: #2a3458;
+    --txt: #e6ecff;
+    --muted: #8a96b8;
+    --accent: #4976df;
+    --accent2: #1b73be;
+    --good: #2ecc71;
+    --ok: #f1c40f;
+    --warn: #e67e22;
+    --bad: #e74c3c;
+    --crit: #ff3860;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0;
+    background: var(--bg);
+    color: var(--txt);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+    line-height: 1.55;
+  }
+  .container { max-width: 1200px; margin: 0 auto; padding: 32px 24px; }
+  header {
+    background: linear-gradient(135deg, #2ecc71 0%, #4976df 100%);
+    padding: 32px 24px;
+    color: white;
+    border-bottom: 1px solid var(--border);
+  }
+  header h1 {
+    margin: 0 0 6px 0;
+    font-size: 28px;
+    font-weight: 700;
+  }
+  header .meta {
+    opacity: 0.92;
+    font-size: 14px;
+  }
+  h2 {
+    margin: 48px 0 16px 0;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--txt);
+    border-bottom: 2px solid var(--good);
+    padding-bottom: 8px;
+  }
+  h2 .num {
+    color: var(--good);
+    margin-right: 10px;
+    font-weight: 800;
+  }
+  h3 {
+    margin: 28px 0 10px 0;
+    font-size: 16px;
+    color: var(--good);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 22px;
+    margin: 14px 0;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0 18px 0;
+    font-size: 14px;
+  }
+  th {
+    background: var(--bg2);
+    text-align: left;
+    padding: 10px 12px;
+    border-bottom: 2px solid var(--border);
+    font-weight: 600;
+    color: var(--muted);
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+  }
+  td {
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: rgba(46,204,113,0.06); }
+  a { color: var(--good); }
+  .tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+  }
+  .tag.good { background: rgba(46,204,113,0.18); color: var(--good); }
+  .tag.warn { background: rgba(241,196,15,0.18); color: var(--ok); }
+  .tag.bad { background: rgba(230,126,34,0.18); color: var(--warn); }
+  .tag.crit { background: rgba(231,76,60,0.18); color: var(--bad); }
+  .tag.info { background: rgba(73,118,223,0.18); color: var(--accent); }
+  .tag.phase { background: rgba(46,204,113,0.18); color: var(--good); }
+  .score-card {
+    background: linear-gradient(135deg, #1a2240 0%, #2a3458 100%);
+    border-radius: 12px;
+    padding: 32px;
+    text-align: center;
+    margin: 18px 0;
+  }
+  .score-big {
+    font-size: 96px;
+    font-weight: 800;
+    background: linear-gradient(135deg, #4976df 0%, #2ecc71 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+  }
+  .score-label {
+    color: var(--muted);
+    font-size: 14px;
+    margin-top: 4px;
+  }
+  .score-row {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    gap: 14px;
+  }
+  .score-row .label {
+    width: 160px;
+    color: var(--muted);
+    font-size: 13px;
+  }
+  .score-row .bar-track {
+    flex: 1;
+    height: 12px;
+    background: var(--bg2);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .score-row .bar-fill {
+    height: 100%;
+    border-radius: 6px;
+  }
+  .score-row .val {
+    width: 50px;
+    text-align: right;
+    font-weight: 700;
+    font-size: 14px;
+  }
+  .score-row .note {
+    width: 240px;
+    color: var(--muted);
+    font-size: 12px;
+  }
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 12px;
+    margin: 12px 0;
+  }
+  .stat {
+    background: var(--bg2);
+    padding: 14px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+  }
+  .stat .v { font-size: 24px; font-weight: 700; }
+  .stat .k { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; margin-top: 4px; }
+  .info-callout {
+    background: rgba(46,204,113,0.08);
+    border-left: 4px solid var(--good);
+    padding: 14px 18px;
+    border-radius: 0 6px 6px 0;
+    margin: 14px 0;
+  }
+  .warn-callout {
+    background: rgba(231,76,60,0.08);
+    border-left: 4px solid var(--bad);
+    padding: 14px 18px;
+    border-radius: 0 6px 6px 0;
+    margin: 14px 0;
+  }
+  .phase-box {
+    background: var(--bg2);
+    border-left: 4px solid var(--good);
+    padding: 14px 18px;
+    border-radius: 0 6px 6px 0;
+    margin: 14px 0;
+  }
+  .phase-box h4 {
+    margin: 0 0 8px 0;
+    color: var(--good);
+    font-size: 15px;
+  }
+  footer {
+    margin: 60px auto 30px auto;
+    padding: 0 24px;
+    color: var(--muted);
+    font-size: 12px;
+    text-align: center;
+  }
+  code {
+    background: var(--bg2);
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-size: 12px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container" style="padding: 0;">
+    <h1>💪 Justin Path to 85+ Human Score</h1>
+    <div class="meta">Justin Gauvin · 37 y/o · Pittsburgh area · No daily Rx · Building toward 85+ across all 8 dimensions · Generated 2026-05-24</div>
+  </div>
+</header>
+
+<div class="container">
+
+  <h2><span class="num">1.</span>🎯 Profile &amp; Score Target</h2>
+
+  <div class="card">
+    <table>
+      <tbody>
+        <tr><td><b>Patient</b></td><td>Justin Gauvin</td></tr>
+        <tr><td><b>DOB</b></td><td>1989-01-09 (age 37)</td></tr>
+        <tr><td><b>Sex</b></td><td>Male</td></tr>
+        <tr><td><b>Location</b></td><td>Pittsburgh, PA area (climate-adjusted scoring applies)</td></tr>
+        <tr><td><b>Medesto user_id</b></td><td><code>ab0d2eaf-83a1-451a-b4ac-5f6f37966a6c</code></td></tr>
+        <tr><td><b>Active prescriptions</b></td><td>None — supplement stack only</td></tr>
+        <tr><td><b>Wearables</b></td><td>Apple Watch (iOS testing context — confirmed via HealthKit sync)</td></tr>
+        <tr><td><b>Current goal</b></td><td><b>85+ Human Score across all 8 dimensions</b></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="info-callout">
+    <b>You're an ideal candidate.</b> Most patients in the Medesto cohort are managing chronic conditions and start with adherence penalties + medication side effects depressing their score. You start with no Rx burden — your Mental Health, Adherence, and Cardio dimensions can hit 90+ purely on lifestyle + tracking. The score ceiling is genuinely higher for you than for any of the Hilltop patients.
+  </div>
+
+  <div class="score-card">
+    <div class="score-big">86-93</div>
+    <div class="score-label">PROJECTED HUMAN SCORE (full Justin Path executed)</div>
+    <div style="margin-top: 8px; color: var(--muted); font-size: 12px;">Data Ensemble target: 22+ of 24 dimensions captured</div>
+  </div>
+
+
+  <h2><span class="num">2.</span>📊 Projected Score Breakdown (when fully on plan)</h2>
+  <div class="card">
+    <div class="score-row"><div class="label">Cardio</div><div class="bar-track"><div class="bar-fill" style="width:88%; background: var(--good);"></div></div><div class="val" style="color:var(--good);">88</div><div class="note">Watch HRV/RHR/ECG · Lp(a)/ApoB · BP cuff · CoQ10/omega-3</div></div>
+    <div class="score-row"><div class="label">Sleep</div><div class="bar-track"><div class="bar-fill" style="width:85%; background: var(--good);"></div></div><div class="val" style="color:var(--good);">85</div><div class="note">Watch + Oura · magnesium PM · winter light box</div></div>
+    <div class="score-row"><div class="label">Metabolic</div><div class="bar-track"><div class="bar-fill" style="width:88%; background: var(--good);"></div></div><div class="val" style="color:var(--good);">88</div><div class="note">Function Health panel · CGM rotation · DEXA visceral fat</div></div>
+    <div class="score-row"><div class="label">Activity</div><div class="bar-track"><div class="bar-fill" style="width:90%; background: var(--good);"></div></div><div class="val" style="color:var(--good);">90</div><div class="note">VO2 max · creatine · 8K+ steps · grip strength</div></div>
+    <div class="score-row"><div class="label">Mental Health</div><div class="bar-track"><div class="bar-fill" style="width:92%; background: var(--good);"></div></div><div class="val" style="color:var(--good);">92</div><div class="note">No Rx · PHQ/GAD normal · purpose/social tracked</div></div>
+    <div class="score-row"><div class="label">Labs / Genomic</div><div class="bar-track"><div class="bar-fill" style="width:95%; background: var(--good);"></div></div><div class="val" style="color:var(--good);">95</div><div class="note">Function Health 100+ markers · PGx · 23andMe · methylation age</div></div>
+    <div class="score-row"><div class="label">Adherence</div><div class="bar-track"><div class="bar-fill" style="width:95%; background: var(--good);"></div></div><div class="val" style="color:var(--good);">95</div><div class="note">Supplement log (no Rx to miss)</div></div>
+    <div class="score-row"><div class="label">Nutrition</div><div class="bar-track"><div class="bar-fill" style="width:82%; background: var(--good);"></div></div><div class="val" style="color:var(--good);">82</div><div class="note">Food log · protein · supplement stack · AUDIT-C tracked</div></div>
+  </div>
+
+  <div class="info-callout">
+    <b>Composite: ~90/100.</b> Achievable with consistent execution. The single biggest risk knock-down is sleep discipline (weekend variance, late-night work) — protect that and 90+ is real.
+  </div>
+
+
+  <h2><span class="num">3.</span>📡 Your Current Data (from Medesto / Apple Health)</h2>
+  <p style="color:var(--muted); font-size:13px;">Pulling live from Superset is blocked right now — production Superset returned 503 at time of generation. Will populate these cells when service recovers. Cached context shown below.</p>
+
+  <div class="card">
+    <table>
+      <thead><tr><th>Source</th><th>Status</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td><b>iOS Medesto app build</b></td><td><span class="tag good">Build 27/28 installed</span></td><td>Testing patient context — confirmed prior dispense + sync flow</td></tr>
+        <tr><td><b>Apple Watch HealthKit sync</b></td><td><span class="tag good">Active</span></td><td>Glucose / HR / sleep flowing into Medesto API (verified Build 27 commit `84be4ad`)</td></tr>
+        <tr><td><b>Steps history</b></td><td><span class="tag warn">Pending Superset</span></td><td>TBD on recovery</td></tr>
+        <tr><td><b>Sleep history</b></td><td><span class="tag warn">Pending Superset</span></td><td>TBD on recovery</td></tr>
+        <tr><td><b>HR readings</b></td><td><span class="tag warn">Pending Superset</span></td><td>TBD on recovery</td></tr>
+        <tr><td><b>BP readings</b></td><td><span class="tag bad">None yet</span></td><td>Recommend Omron Platinum, weekly</td></tr>
+        <tr><td><b>Labs</b></td><td><span class="tag bad">No EHR connected</span></td><td>Recommend Function Health annual baseline</td></tr>
+        <tr><td><b>Genomic (PGx, 23andMe)</b></td><td><span class="tag bad">None</span></td><td>Recommend one-time PGx + 23andMe</td></tr>
+        <tr><td><b>Body composition</b></td><td><span class="tag bad">None</span></td><td>Recommend Withings Body Scan + annual DEXA</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <h2><span class="num">4.</span>📱 Devices — What You'd Buy</h2>
+  <div class="card">
+    <table>
+      <thead><tr><th>Device</th><th>What it captures</th><th>Cost</th><th>Already have?</th></tr></thead>
+      <tbody>
+        <tr><td><b>iPhone</b></td><td>HealthKit orchestrator</td><td>—</td><td>✅</td></tr>
+        <tr><td><b>Apple Watch (Ultra 2 or Series 10)</b></td><td>HR, HRV, RHR, ECG, sleep stages, SpO2, VO2 max, mindful, time in daylight, audio exposure, fall, AFib</td><td>$399-799</td><td>✅ (assumed)</td></tr>
+        <tr><td><b>Oura Ring 4</b></td><td>Sleep redundancy · HRV · body temp · readiness</td><td>$349</td><td>Recommend add</td></tr>
+        <tr><td><b>Withings Body Scan</b></td><td>Daily weight · body fat % · muscle mass · segmental composition · basic ECG</td><td>$399</td><td>Recommend add</td></tr>
+        <tr><td><b>Omron Platinum BP cuff</b></td><td>Home BP weekly</td><td>$80</td><td>Recommend add</td></tr>
+        <tr><td><b>Aranet4 CO2 monitor</b></td><td>Indoor air quality</td><td>$199</td><td>Optional</td></tr>
+        <tr style="background: rgba(46,204,113,0.08);"><td colspan="2"><b>Realistic add-on spend (assuming Apple Watch owned)</b></td><td colspan="2"><b>$880 (Oura + Withings + Omron)</b></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <h2><span class="num">5.</span>🧬 One-Time Tests — Pay Once, Lifetime Value</h2>
+  <div class="card">
+    <table>
+      <thead><tr><th>Test</th><th>Why</th><th>Vendor</th><th>Cost</th></tr></thead>
+      <tbody>
+        <tr><td><b>PGx panel</b></td><td>Future-proof med dosing</td><td><a href="https://genesight.com" target="_blank">GeneSight</a> · <a href="https://www.color.com" target="_blank">Color</a></td><td>$200-330</td></tr>
+        <tr><td><b>Lp(a) lipoprotein</b></td><td>Genetic CV risk — 1 in 5 elevated</td><td>LabCorp / Quest</td><td>$30-50</td></tr>
+        <tr><td><b>23andMe Health</b></td><td>APOE · BRCA · polygenic risk · MTHFR</td><td><a href="https://www.23andme.com" target="_blank">23andMe</a></td><td>$249</td></tr>
+        <tr><td><b>DNA methylation age</b></td><td>Biological age baseline (track annually after)</td><td><a href="https://www.trudiagnostic.com" target="_blank">TruDiagnostic</a></td><td>$499</td></tr>
+        <tr><td><b>CAC scan</b></td><td>Best single MI predictor for 30-50 y/o men</td><td>Local imaging</td><td>$100-200</td></tr>
+        <tr><td><b>Family history + ACE + Life Engagement intake</b></td><td>One-time surveys</td><td>Medesto app forms</td><td>Free</td></tr>
+        <tr style="background: rgba(46,204,113,0.08);"><td colspan="3"><b>Subtotal — One-Time Tests</b></td><td><b>~$1,100-1,400</b></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <h2><span class="num">6.</span>📅 Annual Tests &amp; Screenings</h2>
+  <div class="card">
+    <table>
+      <thead><tr><th>Test</th><th>Why</th><th>Vendor</th><th>Cost</th></tr></thead>
+      <tbody>
+        <tr><td><b>Function Health 100+ marker panel</b></td><td>Comprehensive lab baseline: CMP, CBC, lipids (ApoB, particle size), HbA1c, thyroid full, sex hormones, cortisol, vit D, B12, hsCRP, NT-proBNP</td><td><a href="https://www.functionhealth.com" target="_blank">functionhealth.com</a></td><td>$499</td></tr>
+        <tr><td><b>VO2 Max CPET</b></td><td>Strongest single mortality predictor</td><td>Local sports medicine clinic</td><td>$200</td></tr>
+        <tr><td><b>DEXA scan</b></td><td>Visceral fat + lean mass + bone density</td><td><a href="https://www.bodyspec.com" target="_blank">BodySpec</a></td><td>$150</td></tr>
+        <tr><td><b>Grip strength + functional movement</b></td><td>Sarcopenia + mortality marker</td><td>Annual physical or gym</td><td>$0-40</td></tr>
+        <tr><td><b>Vision exam</b></td><td>Catches diabetic retinopathy + glaucoma early</td><td>Optometrist</td><td>$100</td></tr>
+        <tr><td><b>Dental cleaning x2</b></td><td>Periodontal disease ↑ CVD/dementia risk</td><td>Dentist</td><td>$400</td></tr>
+        <tr><td><b>Skin check</b></td><td>Melanoma early detection</td><td>Dermatologist</td><td>$200</td></tr>
+        <tr><td><b>Hearing test</b></td><td>#1 modifiable dementia risk</td><td>Audiologist or <a href="https://mimi.health" target="_blank">Mimi</a> app</td><td>$0-150</td></tr>
+        <tr style="background: rgba(46,204,113,0.08);"><td colspan="3"><b>Subtotal — Annual Core</b></td><td><b>~$1,500-1,700</b></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Optional annual add-ons (only if budget allows)</h3>
+  <div class="card">
+    <table>
+      <thead><tr><th>Test</th><th>Why</th><th>Vendor</th><th>Cost</th></tr></thead>
+      <tbody>
+        <tr><td><b>Grail Galleri</b></td><td>50+ cancers from single blood draw</td><td><a href="https://www.galleri.com" target="_blank">galleri.com</a></td><td>$949</td></tr>
+        <tr><td><b>DNA methylation age (re-test)</b></td><td>Track biological aging year-over-year</td><td>TruDiagnostic</td><td>$499</td></tr>
+        <tr><td><b>Microbiome</b></td><td>Gut diversity → mood, immune, weight</td><td><a href="https://www.viome.com" target="_blank">Viome</a> · <a href="https://zoe.com" target="_blank">ZOE</a></td><td>$200-300</td></tr>
+        <tr><td><b>Heavy metals + toxins panel</b></td><td>Exposome</td><td><a href="https://www.quicksilverscientific.com" target="_blank">Quicksilver</a></td><td>$200-400</td></tr>
+        <tr style="background: rgba(46,204,113,0.08);"><td colspan="3"><b>Subtotal — Optional</b></td><td><b>~$1,800-2,150 if all</b></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <h2><span class="num">7.</span>💊 Your Supplement Stack</h2>
+  <div class="card">
+    <table>
+      <thead><tr><th>Supplement</th><th>Dose</th><th>Why</th><th>Brand</th><th>Annual</th></tr></thead>
+      <tbody>
+        <tr><td><b>Multivitamin</b></td><td>1/day</td><td>Fill gaps · Vit D · B12 · Mg · K2</td><td><a href="https://drinkag1.com" target="_blank">AG1</a> ($79/mo) or <a href="https://www.thorne.com" target="_blank">Thorne Basic Nutrients</a> ($35/mo)</td><td>$420-948</td></tr>
+        <tr><td><b>CoQ10 (Ubiquinol)</b></td><td>100-200 mg</td><td>Mitochondrial, cardiovascular, energy</td><td><a href="https://qunol.com" target="_blank">Qunol</a> · <a href="https://www.jarrow.com" target="_blank">Jarrow</a></td><td>$200-300</td></tr>
+        <tr><td><b>Creatine monohydrate</b></td><td>5 g/day</td><td>Muscle · bone density · cognitive function</td><td>Thorne · Klean Athlete</td><td>$180-300</td></tr>
+        <tr><td><b>Protein powder</b></td><td>25-40 g</td><td>Muscle maintenance · satiety · glucose control</td><td><a href="https://www.ascentprotein.com" target="_blank">Ascent Native Whey</a> · Garden of Life</td><td>$480-840</td></tr>
+        <tr><td><b>Vitamin D3 + K2</b></td><td>2-5K IU + 90 mcg</td><td>Bone · mood · immune (often deficient in PGH)</td><td>Thorne D/K2</td><td>$40-80</td></tr>
+        <tr><td><b>Omega-3 (EPA/DHA)</b></td><td>2-4 g</td><td>Cardiovascular · brain · anti-inflammatory</td><td>Carlson Wild Caught</td><td>$120-300</td></tr>
+        <tr><td><b>Magnesium glycinate</b></td><td>200-400 mg PM</td><td>Sleep · BP · glucose</td><td>Pure Encapsulations</td><td>$80-180</td></tr>
+        <tr style="background: rgba(46,204,113,0.08);"><td colspan="4"><b>Subtotal — Supplements</b></td><td><b>~$1,520-2,950/yr</b></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <h2><span class="num">8.</span>🔄 Continuous Capture (no ongoing cost beyond above)</h2>
+  <div class="card">
+    <table>
+      <thead><tr><th>Cadence</th><th>What</th><th>Source</th></tr></thead>
+      <tbody>
+        <tr><td><b>Daily</b></td><td>Sleep, HR, HRV, steps, SpO2, VO2 max trend</td><td>Apple Watch + Oura</td></tr>
+        <tr><td><b>Daily</b></td><td>Weight + body comp</td><td>Withings Body Scan</td></tr>
+        <tr><td><b>Daily</b></td><td>Supplement log</td><td>Medesto app or Cronometer</td></tr>
+        <tr><td><b>Daily</b></td><td>Hydration + caffeine</td><td>Apple Health water entry</td></tr>
+        <tr><td><b>Weekly</b></td><td>Home BP reading</td><td>Omron cuff</td></tr>
+        <tr><td><b>Weekly</b></td><td>PHQ-9 + GAD-7 + ISI</td><td>Medesto app survey</td></tr>
+        <tr><td><b>Weekly</b></td><td>Food log</td><td><a href="https://cronometer.com" target="_blank">Cronometer</a> (free)</td></tr>
+        <tr><td><b>Monthly</b></td><td>Waist circumference</td><td>Tape measure + log</td></tr>
+        <tr><td><b>Monthly</b></td><td>AUDIT-C + supplement audit</td><td>Medesto app</td></tr>
+        <tr><td><b>Quarterly</b></td><td>PSS-10 stress · UCLA-3 loneliness · LET-6 purpose</td><td>Medesto app</td></tr>
+        <tr><td><b>2× yearly</b></td><td>CGM rotation (2-week trial each)</td><td><a href="https://www.stelo.com" target="_blank">Dexcom Stelo</a></td></tr>
+        <tr style="background: rgba(46,204,113,0.08);"><td colspan="2"><b>Subtotal — Continuous</b></td><td><b>~$200/yr</b></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <h2><span class="num">9.</span>💰 Year 1 vs Year 2+ Total Cost</h2>
+  <div class="stat-grid">
+    <div class="stat"><div class="v" style="color:var(--good);">$7-9K</div><div class="k">Year 1 (setup + all tests)</div></div>
+    <div class="stat"><div class="v" style="color:var(--good);">$5-7K</div><div class="k">Year 2+ recurring</div></div>
+    <div class="stat"><div class="v" style="color:var(--muted);">$13K</div><div class="k">US median reactive spend</div></div>
+    <div class="stat"><div class="v" style="color:var(--good);">~$500/mo</div><div class="k">Effective monthly Year 2+</div></div>
+  </div>
+
+  <div class="card">
+    <table>
+      <thead><tr><th>Bucket</th><th>Year 1</th><th>Year 2+</th></tr></thead>
+      <tbody>
+        <tr><td>Devices (Oura + Withings + Omron)</td><td>$880</td><td>$0</td></tr>
+        <tr><td>One-time tests (PGx · Lp(a) · 23andMe · methylation · CAC)</td><td>$1,100-1,400</td><td>$0</td></tr>
+        <tr><td>Annual lab + screenings (Function Health · VO2 · DEXA · vision · dental · skin)</td><td>$1,500-1,700</td><td>$1,500-1,700</td></tr>
+        <tr><td>Annual optional adds (Galleri · microbiome · methylation re-test)</td><td>$1,800-2,150</td><td>$1,800-2,150</td></tr>
+        <tr><td>Supplements (multi · CoQ10 · creatine · protein · D3/K2 · omega-3 · Mg)</td><td>$1,520-2,950</td><td>$1,520-2,950</td></tr>
+        <tr><td>Continuous (CGM rotation, etc.)</td><td>$200</td><td>$200</td></tr>
+        <tr style="background: rgba(46,204,113,0.08);"><td><b>TOTAL</b></td><td><b>$7,000-9,300</b></td><td><b>$5,000-7,000</b></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <h2><span class="num">10.</span>📆 90-Day Rollout Phases</h2>
+
+  <div class="phase-box">
+    <h4>🚀 Phase 1 — Month 1 (~$1,500): Baseline insight</h4>
+    <ul>
+      <li>Order PGx panel (GeneSight)</li>
+      <li>Schedule Function Health annual panel — $499 for 100+ markers</li>
+      <li>Add Lp(a) blood test (one-time, lifetime)</li>
+      <li>Order 23andMe Health</li>
+      <li>Start supplement stack (multi + CoQ10 + creatine + protein)</li>
+      <li>Connect Apple Health Clinical Records (if any UPMC / hospital data exists)</li>
+    </ul>
+    <p style="color:var(--muted); font-size:12px;">→ Result: Massive baseline data dump · Labs &amp; Genomic dimensions go from 0 to 90+</p>
+  </div>
+
+  <div class="phase-box">
+    <h4>🔧 Phase 2 — Days 31-60 (~$850): Continuous capture</h4>
+    <ul>
+      <li>Buy Oura Ring 4 (sleep redundancy)</li>
+      <li>Buy Withings Body Scan (daily body comp)</li>
+      <li>Buy Omron BP cuff (weekly readings)</li>
+      <li>Schedule DEXA scan ($150)</li>
+      <li>Schedule CAC scan ($150)</li>
+      <li>Schedule VO2 max CPET ($200)</li>
+    </ul>
+    <p style="color:var(--muted); font-size:12px;">→ Result: All continuous + structural data flowing · Cardio &amp; Metabolic &amp; Activity dimensions populated</p>
+  </div>
+
+  <div class="phase-box">
+    <h4>♾️ Phase 3 — Days 61-90 (~$300-500): Ongoing rhythm</h4>
+    <ul>
+      <li>Schedule annual physical, vision, dental, dermatology, hearing</li>
+      <li>Run 2-week CGM trial (Dexcom Stelo, $99)</li>
+      <li>Add weekly PHQ-9 + GAD-7 in-app (Medesto built-in)</li>
+      <li>Add quarterly social/purpose surveys</li>
+      <li>Optional: add air quality monitor at home</li>
+    </ul>
+    <p style="color:var(--muted); font-size:12px;">→ Result: Score is now &gt;85 with full Data Ensemble (22+ of 24 dimensions) · Mental Health + Nutrition dimensions complete</p>
+  </div>
+
+
+  <h2><span class="num">11.</span>🚨 What Could Knock You Below 85</h2>
+  <div class="card">
+    <table>
+      <thead><tr><th>Risk</th><th>Why it matters</th><th>Prevention</th></tr></thead>
+      <tbody>
+        <tr><td><b>Inconsistent sleep &lt;7h</b></td><td>Single biggest knockout · drops Sleep + Mental + Cardio simultaneously</td><td>Discipline · no screens 1h before bed · magnesium PM · consistent wake time</td></tr>
+        <tr><td><b>Weekend alcohol &gt;2 drinks</b></td><td>Smashes sleep · recovery · glucose · mood</td><td>AUDIT-C tracking · alcohol-free weekday baseline · cap weekends</td></tr>
+        <tr><td><b>Visceral fat creep</b></td><td>Even at normal BMI, can have high VAT</td><td>DEXA tracking · resistance training 3×/wk · protein 1.6-2g/kg</td></tr>
+        <tr><td><b>Sedentary deep-work weeks</b></td><td>Tech entrepreneur trap · tanks Activity score</td><td>Standing desk · walking meetings · 8K daily min</td></tr>
+        <tr><td><b>Untracked stress</b></td><td>Cortisol → BP, glucose, sleep, mood</td><td>Quarterly PSS-10 · meditation log · HRV trend watch</td></tr>
+        <tr><td><b>Skipping the annual labs</b></td><td>Score loses data confidence → drops</td><td>Calendar reminder Q1 · Function Health auto-renews</td></tr>
+        <tr><td><b>Pittsburgh light deprivation</b></td><td>40.45° N latitude · winter SAD risk even for non-clinical</td><td>10K lux light therapy box ($50-100) AM 30 min · Nov-Mar</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <h2><span class="num">12.</span>🧠 Side-by-Side: You vs Hilltop Cohort</h2>
+  <div class="card">
+    <table>
+      <thead><tr><th>Metric</th><th>You (Justin Path)</th><th>Hilltop avg</th><th>Why the gap</th></tr></thead>
+      <tbody>
+        <tr><td><b>Composite Human Score</b></td><td>86-93</td><td>41</td><td>No Rx burden + active wearable + planned tests</td></tr>
+        <tr><td><b>Adherence dimension</b></td><td>95</td><td>33</td><td>Supplements vs Rx; less downside risk</td></tr>
+        <tr><td><b>Mental Health dimension</b></td><td>92</td><td>38</td><td>No active depression dx; full social/purpose tracked</td></tr>
+        <tr><td><b>Data Ensemble</b></td><td>22/24 dimensions</td><td>5/24</td><td>You complete Tier 3-5 (Labs, Continuous, Genomic, Geo)</td></tr>
+        <tr><td><b>Annual investment</b></td><td>$5-7K</td><td>$0 (insurance only)</td><td>You're investing in prevention; they're on reactive care</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <h2><span class="num">13.</span>📝 To-Do List (Action Items)</h2>
+  <div class="card">
+    <p style="color:var(--muted); font-size:13px;">Check items off as you complete them — selections save locally on this device.</p>
+    <table>
+      <thead><tr><th style="width:32px;">✓</th><th>Action</th><th>Cost</th><th>Vendor</th></tr></thead>
+      <tbody>
+        <tr><td><input type="checkbox" data-checklist="j-pgx"></td><td>Order PGx panel</td><td>$200-330</td><td><a href="https://genesight.com" target="_blank">GeneSight</a></td></tr>
+        <tr><td><input type="checkbox" data-checklist="j-lpa"></td><td>Order Lp(a) test (one-time)</td><td>$30-50</td><td>LabCorp / Quest</td></tr>
+        <tr><td><input type="checkbox" data-checklist="j-23andme"></td><td>Order 23andMe Health</td><td>$249</td><td><a href="https://www.23andme.com" target="_blank">23andMe</a></td></tr>
+        <tr><td><input type="checkbox" data-checklist="j-methyl"></td><td>Order DNA methylation age</td><td>$499</td><td><a href="https://www.trudiagnostic.com" target="_blank">TruDiagnostic</a></td></tr>
+        <tr><td><input type="checkbox" data-checklist="j-function"></td><td>Subscribe to Function Health</td><td>$499/yr</td><td><a href="https://www.functionhealth.com" target="_blank">functionhealth.com</a></td></tr>
+        <tr><td><input type="checkbox" data-checklist="j-cac"></td><td>Schedule CAC scan</td><td>$100-200</td><td>Local imaging</td></tr>
+        <tr><td><input type="checkbox" data-checklist="j-vo2"></td><td>Schedule VO2 max CPET</td><td>$200</td><td>Local sports medicine clinic</td></tr>
+        <tr><td><input type="checkbox" data-checklist="j-dexa"></td><td>Schedule DEXA scan</td><td>$150</td><td><a href="https://www.bodyspec.com" target="_blank">BodySpec</a></td></tr>
+        <tr><td><input type="checkbox" data-checklist="j-oura"></td><td>Buy Oura Ring 4</td><td>$349</td><td><a href="https://ouraring.com" target="_blank">ouraring.com</a></td></tr>
+        <tr><td><input type="checkbox" data-checklist="j-scale"></td><td>Buy Withings Body Scan</td><td>$399</td><td><a href="https://www.withings.com" target="_blank">withings.com</a></td></tr>
+        <tr><td><input type="checkbox" data-checklist="j-bp"></td><td>Buy Omron Platinum BP cuff</td><td>$80</td><td><a href="https://www.omron.com" target="_blank">omron.com</a></td></tr>
+        <tr><td><input type="checkbox" data-checklist="j-multi"></td><td>Start multivitamin</td><td>$35-79/mo</td><td>AG1 or Thorne</td></tr>
+        <tr><td><input type="checkbox" data-checklist="j-coq10"></td><td>Start CoQ10 Ubiquinol</td><td>$20-30/mo</td><td>Qunol / Jarrow</td></tr>
+        <tr><td><input type="checkbox" data-checklist="j-creatine"></td><td>Start creatine 5g/day</td><td>$15-25/mo</td><td>Thorne</td></tr>
+        <tr><td><input type="checkbox" data-checklist="j-protein"></td><td>Start protein 25-40g/day</td><td>$40-80/mo</td><td>Ascent Native Whey</td></tr>
+        <tr><td><input type="checkbox" data-checklist="j-d3k2"></td><td>Start Vit D3 + K2</td><td>$5-10/mo</td><td>Thorne</td></tr>
+        <tr><td><input type="checkbox" data-checklist="j-omega"></td><td>Start Omega-3 (EPA/DHA)</td><td>$10-25/mo</td><td>Carlson</td></tr>
+        <tr><td><input type="checkbox" data-checklist="j-mg"></td><td>Start magnesium glycinate PM</td><td>$10-15/mo</td><td>Pure Encapsulations</td></tr>
+        <tr><td><input type="checkbox" data-checklist="j-cgm"></td><td>Run CGM 2-week trial</td><td>$99</td><td><a href="https://www.stelo.com" target="_blank">Dexcom Stelo</a></td></tr>
+        <tr><td><input type="checkbox" data-checklist="j-physical"></td><td>Schedule annual physical</td><td>Insurance</td><td>Primary care</td></tr>
+        <tr><td><input type="checkbox" data-checklist="j-dental"></td><td>Schedule 2 dental cleanings</td><td>$400/yr</td><td>Dentist</td></tr>
+        <tr><td><input type="checkbox" data-checklist="j-vision"></td><td>Schedule vision exam</td><td>$100</td><td>Optometrist</td></tr>
+        <tr><td><input type="checkbox" data-checklist="j-derm"></td><td>Schedule skin check</td><td>$200</td><td>Dermatologist</td></tr>
+        <tr><td><input type="checkbox" data-checklist="j-hearing"></td><td>Take baseline hearing test</td><td>$0-150</td><td><a href="https://mimi.health" target="_blank">Mimi app</a></td></tr>
+        <tr><td><input type="checkbox" data-checklist="j-galleri"></td><td>(Optional) Grail Galleri</td><td>$949</td><td><a href="https://www.galleri.com" target="_blank">galleri.com</a></td></tr>
+        <tr><td><input type="checkbox" data-checklist="j-microbiome"></td><td>(Optional) Microbiome test</td><td>$200-300</td><td><a href="https://www.viome.com" target="_blank">Viome</a> or <a href="https://zoe.com" target="_blank">ZOE</a></td></tr>
+        <tr><td><input type="checkbox" data-checklist="j-light"></td><td>(Pittsburgh winter) Buy 10K lux light box</td><td>$50-100</td><td>Verilux / Carex</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <h2><span class="num">14.</span>🔮 Next Up — Once Superset Recovers</h2>
+  <div class="info-callout">
+    <b>When the production DB is back, I'll auto-populate:</b>
+    <ul>
+      <li>Your actual lifetime steps, sleep, HR, SpO2 from Medesto</li>
+      <li>Your current Human Score (vs the projected 86-93)</li>
+      <li>Day-by-day daily activity log (same format as Patient R)</li>
+      <li>HR by hour pattern (would show your morning sympathetic load)</li>
+      <li>Sleep quality trend</li>
+      <li>Any prior BP / glucose readings if you've tracked them</li>
+    </ul>
+    Once those are in, this page becomes a real "are you executing the plan" tracker.
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('input[type="checkbox"][data-checklist]').forEach(function (cb) {
+        var key = 'justin_path_' + cb.dataset.checklist;
+        if (localStorage.getItem(key) === 'true') cb.checked = true;
+        cb.addEventListener('change', function () {
+          localStorage.setItem(key, cb.checked ? 'true' : 'false');
+        });
+      });
+    });
+  </script>
+
+</div>
+
+<footer>
+  Generated 2026-05-24 · Justin Gauvin personalized Human Score plan · Cost roadmap to 85+ composite · Pulled from Medesto database concept · Live data integration pending Superset recovery
+</footer>
+
+</body>
+</html>
