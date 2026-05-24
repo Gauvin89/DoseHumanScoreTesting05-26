@@ -690,6 +690,342 @@
     </pre>
   </div>
 
+
+  <h2><span class="num">11.</span>📋 Patient Health Data Acquisition Checklist</h2>
+  <p>
+    Everything you'd add to a patient's Human Score, consolidated under the 8 master categories.
+    <b>90 sub-signals</b> total. Patient sees 8; the care team and AI work with all 90.
+    Vendors + costs + the clinical reason for each are below.
+    Check the boxes to track patient status — selections persist on this device.
+  </p>
+
+  <div class="info-callout">
+    <b>How to use this checklist:</b> the items at top (passive capture) require zero patient action — they auto-flow into the score when the device is paired.
+    The 1-time tests have lifetime relevance — pay once, value forever.
+    Annual + continuous items are the working cadence for ongoing score accuracy.
+    Optional add-ons are high-value but cost-gated; recommend per-patient based on risk profile.
+  </div>
+
+  <h3>📡 Passive Capture — What You Already Have</h3>
+  <p style="color:var(--muted); font-size:13px;">Once paired, these wearables push data automatically. No patient action needed beyond keeping the device worn and charged.</p>
+  <div class="card">
+    <table>
+      <thead><tr><th style="width:32px;">✓</th><th>Source</th><th>What it captures</th><th>Maps to Human Score</th></tr></thead>
+      <tbody>
+        <tr><td><input type="checkbox" data-checklist="passive-applewatch"></td><td><b>Apple Watch</b></td><td>Steps · active energy · stand hours · HR · HRV · resting HR · ECG · AFib monitoring · sleep stages (REM/deep/core/awake) · SpO2 overnight · VO2 max · walking gait · mindful minutes · time in daylight · audio exposure · fall detection</td><td>Cardio · Sleep · Activity · Mental Health</td></tr>
+        <tr><td><input type="checkbox" data-checklist="passive-oura"></td><td><b>Oura Ring</b></td><td>Sleep architecture · HRV · body temperature trend · readiness score · cycle tracking</td><td>Sleep · Cardio · Mental Health</td></tr>
+        <tr><td><input type="checkbox" data-checklist="passive-medesto"></td><td><b>Medesto Dispenser</b></td><td>Dispense events · adherence (in-range / late / missed) · cup-removed timing · regimen schedule</td><td>Adherence</td></tr>
+        <tr><td><input type="checkbox" data-checklist="passive-mychart"></td><td><b>Apple Health Records (FHIR)</b></td><td>Labs · diagnoses · immunizations · allergies · procedures · vitals from clinical visits</td><td>Labs · Cardio · Metabolic · all clinical</td></tr>
+        <tr><td><input type="checkbox" data-checklist="passive-scale"></td><td><b>Smart scale</b> (Withings Body+ / Body Scan)</td><td>Daily weight · body fat % · muscle mass · bone mass · BMI · segmental composition (Body Scan)</td><td>Metabolic · Activity</td></tr>
+        <tr><td><input type="checkbox" data-checklist="passive-cgm"></td><td><b>CGM</b> (Dexcom Stelo / Abbott Lingo)</td><td>Continuous glucose · glycemic variability · time-in-range</td><td>Metabolic</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>🧬 One-Time Tests — Lifetime Relevance</h3>
+  <p style="color:var(--muted); font-size:13px;">Pay once, value forever. These don't change meaningfully over time — your genome and ACE score never expire.</p>
+  <div class="card">
+    <table>
+      <thead><tr><th style="width:32px;">✓</th><th>Test</th><th>Why it matters</th><th>Vendor</th><th>Cost</th><th>Score impact</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><input type="checkbox" data-checklist="onetime-pgx"></td>
+          <td><b>PGx panel</b> (CYP2D6, CYP2C19, CYP2C9, MTHFR, etc.)</td>
+          <td>Optimal med dosing for psych, cardiac, pain meds. Critical when patient is on SSRIs, beta-blockers, warfarin, opioids.</td>
+          <td><a href="https://genesight.com" target="_blank">GeneSight</a> (psych) · <a href="https://www.color.com" target="_blank">Color</a> · <a href="https://www.tempus.com" target="_blank">Tempus</a></td>
+          <td>$200-330</td>
+          <td>Labs · Adherence</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" data-checklist="onetime-lpa"></td>
+          <td><b>Lp(a) lipoprotein</b></td>
+          <td>Genetic CV risk — 20% of population has elevated; 2-4× MI risk. Single lifetime test, not repeat-tested.</td>
+          <td>LabCorp · Quest · primary care add-on</td>
+          <td>$30-50</td>
+          <td>Cardio · Labs</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" data-checklist="onetime-apoe"></td>
+          <td><b>APOE genotype</b></td>
+          <td>Alzheimer's risk stratification. APOE4 carriers have 3-12× higher dementia risk. Drives prevention strategy.</td>
+          <td><a href="https://www.23andme.com" target="_blank">23andMe Health</a> (includes APOE)</td>
+          <td>$199-249</td>
+          <td>Mental Health · Labs</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" data-checklist="onetime-dna"></td>
+          <td><b>Whole genome / consumer DNA</b></td>
+          <td>Polygenic risk scores for depression, CVD, T2D, obesity, breast cancer, etc.</td>
+          <td><a href="https://www.23andme.com" target="_blank">23andMe</a> · <a href="https://www.ancestry.com" target="_blank">Ancestry</a></td>
+          <td>$99-249</td>
+          <td>Labs · all categories</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" data-checklist="onetime-methylation"></td>
+          <td><b>DNA methylation age</b> (Horvath / GrimAge / PhenoAge)</td>
+          <td>True biological age vs chronological. Better mortality predictor than age. Trackable annually if budget allows.</td>
+          <td><a href="https://www.trudiagnostic.com" target="_blank">TruDiagnostic</a></td>
+          <td>$499</td>
+          <td>Labs</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" data-checklist="onetime-family"></td>
+          <td><b>Family history intake</b></td>
+          <td>Maps inherited risk patterns: heart disease, cancer, mental illness, diabetes.</td>
+          <td>Medesto onboarding form</td>
+          <td>Free</td>
+          <td>All categories</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" data-checklist="onetime-ace"></td>
+          <td><b>ACE score</b> (Adverse Childhood Experiences)</td>
+          <td>Each ACE point = measurable adult health risk. Score ≥4 = 2-4× chronic disease risk.</td>
+          <td>Validated 10-question survey</td>
+          <td>Free</td>
+          <td>Mental Health · Labs</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" data-checklist="onetime-purpose"></td>
+          <td><b>Life Engagement Test</b> (sense of purpose)</td>
+          <td>Strongest non-clinical longevity predictor in centenarian research.</td>
+          <td>6-question validated survey</td>
+          <td>Free</td>
+          <td>Mental Health</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>📅 Annual Tests — Every 12 Months</h3>
+  <div class="card">
+    <table>
+      <thead><tr><th style="width:32px;">✓</th><th>Test</th><th>Why it matters</th><th>Vendor</th><th>Cost</th><th>Score impact</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><input type="checkbox" data-checklist="annual-bloodpanel"></td>
+          <td><b>Comprehensive lab panel</b> (CMP, CBC, lipids, HbA1c, ApoB, hsCRP, full thyroid, Vit D, B12)</td>
+          <td>Baseline health snapshot. Catches diabetes, thyroid, kidney, liver, inflammation issues early.</td>
+          <td>Primary care · <a href="https://www.functionhealth.com" target="_blank">Function Health</a> ($499/yr, 100+ markers) · <a href="https://www.insidetracker.com" target="_blank">InsideTracker</a></td>
+          <td>$0-499</td>
+          <td>Labs · Metabolic · Cardio</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" data-checklist="annual-vo2"></td>
+          <td><b>VO2 Max test</b> (CPET)</td>
+          <td>Strongest single predictor of all-cause mortality. Each 1 MET = 12% lower mortality. Apple Watch estimates; CPET is gold standard.</td>
+          <td>Local sports medicine clinic · <a href="https://www.dexafit.com" target="_blank">DEXAFit</a></td>
+          <td>$150-300</td>
+          <td>Cardio · Activity</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" data-checklist="annual-grip"></td>
+          <td><b>Grip strength + functional movement</b></td>
+          <td>Sarcopenia + mortality marker. Each 5kg drop = 16% higher all-cause mortality.</td>
+          <td>Clinical visit · hand dynamometer (~$40 personal)</td>
+          <td>$0-40</td>
+          <td>Activity</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" data-checklist="annual-dexa"></td>
+          <td><b>DEXA scan</b> (bone density + visceral fat + lean mass)</td>
+          <td>Visceral fat is metabolic killer, not subcutaneous. Tracks sarcopenia. Bone density catches osteoporosis early.</td>
+          <td><a href="https://www.bodyspec.com" target="_blank">BodySpec</a> · <a href="https://www.dexafit.com" target="_blank">DEXAFit</a> · local imaging</td>
+          <td>$100-200</td>
+          <td>Metabolic · Activity</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" data-checklist="annual-vision"></td>
+          <td><b>Vision exam</b></td>
+          <td>Catches diabetic retinopathy + glaucoma early; eye exam can reveal HTN, diabetes, MS.</td>
+          <td>Local optometrist</td>
+          <td>$50-200</td>
+          <td>Labs · Metabolic</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" data-checklist="annual-dental"></td>
+          <td><b>Dental cleaning</b> (2× yearly)</td>
+          <td>Periodontal disease linked to CVD, dementia, diabetes. Modifiable risk.</td>
+          <td>Local dentist</td>
+          <td>$100-300/visit</td>
+          <td>Cardio · Labs</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" data-checklist="annual-skin"></td>
+          <td><b>Skin check</b> (dermatologist)</td>
+          <td>Melanoma early detection. App photo-tracking moles between visits.</td>
+          <td>Dermatologist · <a href="https://www.miiskin.com" target="_blank">Miiskin app</a></td>
+          <td>$150-300</td>
+          <td>Labs</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" data-checklist="annual-cancer"></td>
+          <td><b>Age-appropriate cancer screening</b> (mammo / colon / PSA)</td>
+          <td>Per USPSTF guidelines. Insurance covered.</td>
+          <td>Primary care referral</td>
+          <td>Insurance covered</td>
+          <td>Labs</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" data-checklist="annual-mh"></td>
+          <td><b>Mental health screen</b> (PHQ-9 + GAD-7)</td>
+          <td>Validated annual screening for depression + anxiety. Triggers escalation if positive.</td>
+          <td>Medesto app survey (built-in)</td>
+          <td>Free</td>
+          <td>Mental Health</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>🔄 Continuous / Weekly / Monthly</h3>
+  <div class="card">
+    <table>
+      <thead><tr><th style="width:32px;">✓</th><th>Cadence</th><th>What</th><th>Source</th><th>Score impact</th></tr></thead>
+      <tbody>
+        <tr><td><input type="checkbox" data-checklist="ongoing-daily"></td><td><b>Daily</b></td><td>Sleep · HR · HRV · steps · activity · SpO2</td><td>Apple Watch + Oura (passive)</td><td>Cardio · Sleep · Activity</td></tr>
+        <tr><td><input type="checkbox" data-checklist="ongoing-weight"></td><td><b>Daily</b></td><td>Body weight + composition</td><td>Smart scale (passive)</td><td>Metabolic</td></tr>
+        <tr><td><input type="checkbox" data-checklist="ongoing-meds"></td><td><b>Daily</b></td><td>Medication adherence + dispense timing</td><td>Medesto Dispenser (passive)</td><td>Adherence</td></tr>
+        <tr><td><input type="checkbox" data-checklist="ongoing-phq"></td><td><b>Weekly</b></td><td>PHQ-9 (depression) · GAD-7 (anxiety) · ISI (insomnia)</td><td>Medesto app survey</td><td>Mental Health · Sleep</td></tr>
+        <tr><td><input type="checkbox" data-checklist="ongoing-food"></td><td><b>Weekly</b></td><td>Food log (optional)</td><td><a href="https://www.myfitnesspal.com" target="_blank">MyFitnessPal</a> · <a href="https://cronometer.com" target="_blank">Cronometer</a></td><td>Nutrition</td></tr>
+        <tr><td><input type="checkbox" data-checklist="ongoing-waist"></td><td><b>Monthly</b></td><td>Waist circumference (self-measure)</td><td>Tape measure + app log</td><td>Metabolic</td></tr>
+        <tr><td><input type="checkbox" data-checklist="ongoing-lifestyle"></td><td><b>Monthly</b></td><td>Alcohol (AUDIT-C) · smoking · supplements</td><td>Medesto app survey</td><td>Nutrition · Mental Health</td></tr>
+        <tr><td><input type="checkbox" data-checklist="ongoing-quarterly"></td><td><b>Quarterly</b></td><td>Stress (PSS-10) · loneliness (UCLA-3) · purpose (LET-6)</td><td>Medesto app survey</td><td>Mental Health</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>💎 High-Value Optional Add-Ons</h3>
+  <p style="color:var(--muted); font-size:13px;">Cost-gated but high impact. Recommend per-patient based on risk profile.</p>
+  <div class="card">
+    <table>
+      <thead><tr><th style="width:32px;">✓</th><th>Add-on</th><th>Why</th><th>Vendor</th><th>Cost</th><th>Score impact</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><input type="checkbox" data-checklist="optional-cgm"></td>
+          <td><b>Continuous Glucose Monitor</b></td>
+          <td>Even non-diabetic — glucose variability is mortality predictor. 2-week trial reveals dietary triggers.</td>
+          <td><a href="https://www.stelo.com" target="_blank">Dexcom Stelo</a> (OTC) · <a href="https://hellolingo.com" target="_blank">Abbott Lingo</a> · <a href="https://nutrisense.io" target="_blank">NutriSense</a></td>
+          <td>$99/mo</td>
+          <td>Metabolic</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" data-checklist="optional-microbiome"></td>
+          <td><b>Microbiome test</b></td>
+          <td>Gut health affects mood, immunity, obesity, autoimmune, IBD. Gut-brain axis.</td>
+          <td><a href="https://www.viome.com" target="_blank">Viome</a> · <a href="https://zoe.com" target="_blank">ZOE</a> · <a href="https://www.tinyhealth.com" target="_blank">Tiny Health</a></td>
+          <td>$200-300</td>
+          <td>Metabolic · Mental Health · Labs</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" data-checklist="optional-cac"></td>
+          <td><b>Coronary Artery Calcium scan</b></td>
+          <td>Best single CV predictor. Once between 45-55 (sooner with family history).</td>
+          <td>Local imaging center · <a href="https://www.healthnucleus.com" target="_blank">Health Nucleus</a></td>
+          <td>$100-200</td>
+          <td>Cardio</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" data-checklist="optional-sleep"></td>
+          <td><b>Home sleep test</b> (if OSA suspected)</td>
+          <td>Confirms apnea without overnight lab visit. Indicated when SpO2 desats + daytime fatigue.</td>
+          <td><a href="https://www.lofta.com" target="_blank">Lofta</a> (WatchPAT) · <a href="https://www.sleeptest.com" target="_blank">SleepTest.com</a></td>
+          <td>$189-299</td>
+          <td>Sleep · Cardio</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" data-checklist="optional-air"></td>
+          <td><b>Indoor air quality monitor</b></td>
+          <td>PM2.5, CO2, VOCs at home. Surfaces modifiable environmental causes of poor sleep, asthma, allergies.</td>
+          <td><a href="https://www.getawair.com" target="_blank">Awair</a> · <a href="https://aranet.com" target="_blank">Aranet4</a> · <a href="https://www.airgradient.com" target="_blank">AirGradient</a></td>
+          <td>$80-300</td>
+          <td>Sleep · Cardio · Mental Health</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" data-checklist="optional-hormones"></td>
+          <td><b>Hormone panel</b> (thyroid full · sex hormones · cortisol diurnal)</td>
+          <td>Functional medicine deep dive. Often reveals "tired all the time" root cause.</td>
+          <td><a href="https://www.rupahealth.com" target="_blank">Rupa Health</a> · <a href="https://www.zrtlab.com" target="_blank">ZRT Lab</a></td>
+          <td>$150-400</td>
+          <td>Metabolic · Mental Health · Labs</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" data-checklist="optional-toxins"></td>
+          <td><b>Heavy metals + toxins panel</b></td>
+          <td>Exposome quantification: lead · mercury · arsenic · PFAS · BPA · phthalates · mold.</td>
+          <td><a href="https://www.quicksilverscientific.com" target="_blank">Quicksilver Scientific</a> · <a href="https://www.greatplainslaboratory.com" target="_blank">Great Plains Lab</a></td>
+          <td>$200-400</td>
+          <td>Labs</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" data-checklist="optional-cancer"></td>
+          <td><b>Multi-cancer early detection blood test</b></td>
+          <td>Detects 50+ cancers from single blood draw. Annual if family history of cancer.</td>
+          <td><a href="https://www.galleri.com" target="_blank">Grail Galleri</a></td>
+          <td>$949</td>
+          <td>Labs</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" data-checklist="optional-hearing"></td>
+          <td><b>Annual hearing test</b></td>
+          <td>Untreated hearing loss = #1 modifiable dementia risk. Often invisible.</td>
+          <td>Local audiologist · <a href="https://mimi.health" target="_blank">Mimi Hearing app</a></td>
+          <td>$0-150</td>
+          <td>Mental Health</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" data-checklist="optional-bp"></td>
+          <td><b>Home BP cuff + auto-prompt</b></td>
+          <td>Catches masked hypertension. Critical for any patient on activating meds (Bupropion, stimulants).</td>
+          <td><a href="https://www.omron.com" target="_blank">Omron</a> · <a href="https://www.qardio.com" target="_blank">Qardio</a></td>
+          <td>$50-150</td>
+          <td>Cardio</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>📊 Master Category Map — How the 90 Sub-Signals Roll Up</h3>
+  <div class="card">
+    <table>
+      <thead><tr><th>Master Category</th><th>Sub-Signals Counted</th><th>Top Acquisition Sources</th></tr></thead>
+      <tbody>
+        <tr><td><b>1. Cardio</b></td><td>11 (HR, HRV, RHR, BP, ECG, VO2max, CAC, ApoB, Lp(a), hsCRP, NT-proBNP)</td><td>Apple Watch · BP cuff · CAC scan · annual lab</td></tr>
+        <tr><td><b>2. Sleep</b></td><td>9 (duration, stages, efficiency, AHI, SpO2 desats, chronotype, ISI, snoring, environment)</td><td>Apple Watch · Oura · sleep study · weekly survey</td></tr>
+        <tr><td><b>3. Metabolic</b></td><td>14 (CGM, A1c, fasting glucose, insulin, lipids, ApoB, Lp(a), liver, kidney, thyroid, DEXA, body comp, visceral fat, waist)</td><td>CGM · annual lab · DEXA · smart scale</td></tr>
+        <tr><td><b>4. Activity</b></td><td>11 (steps, energy, VO2max, grip, stand hrs, workouts, 6MWT, gait, sit-to-stand, balance, daylight)</td><td>Apple Watch · grip test · annual physical</td></tr>
+        <tr><td><b>5. Mental Health</b></td><td>12 (PHQ-9, GAD-7, ISI, PSS, UCLA, ACE, LET-6, phenotyping, mindful, therapy, trauma, cognitive battery, APOE)</td><td>App surveys · intake · Apple Watch · NIH Toolbox</td></tr>
+        <tr><td><b>6. Labs / Clinical / Genomic</b></td><td>19 (annual panel, advanced CV, hormones, inflammation, cancer screens, PGx, PRS, methylation age, telomere, microbiome, toxins, vaccines, imaging, vision, hearing, dental)</td><td>Annual panel · PGx (one-time) · EHR · specialty add-ons</td></tr>
+        <tr><td><b>7. Adherence</b></td><td>6 (dispense events, manual log, TDM blood levels, side effects, DDI checks, PGx alignment)</td><td>Medesto Dispenser · app survey · clinical lab</td></tr>
+        <tr><td><b>8. Nutrition</b></td><td>8 (food log, hydration, caffeine, alcohol AUDIT-C, smoking, substances, eating patterns, supplements)</td><td>MyFitnessPal / Cronometer · monthly app survey</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="info-callout">
+    <b>Cost summary if a patient does everything in this checklist (year 1):</b>
+    <ul>
+      <li>One-time tests (PGx + Lp(a) + DNA + methylation age + intake): <b>~$800-1,500</b></li>
+      <li>Annual baseline (Function Health panel + VO2 max + DEXA + dental + vision + skin): <b>~$700-1,200</b></li>
+      <li>Continuous (Apple Watch + Oura + smart scale + Medesto: already owned): <b>$0 incremental</b></li>
+      <li>Optional high-value adds (CGM 3 mo + microbiome + CAC + home sleep + BP cuff): <b>~$700-1,200</b></li>
+      <li><b>Year 1 total: $2,200-3,900 · Year 2+ (skip one-time): $700-1,200</b></li>
+    </ul>
+    For context: median annual US healthcare spend per person is ~$13,000 — and that's reactive. This checklist is preventive.
+  </div>
+
+  <script>
+    // Persist checkbox state in localStorage so patient can return and pick up
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('input[type="checkbox"][data-checklist]').forEach(function (cb) {
+        var key = 'medesto_checklist_' + cb.dataset.checklist;
+        if (localStorage.getItem(key) === 'true') cb.checked = true;
+        cb.addEventListener('change', function () {
+          localStorage.setItem(key, cb.checked ? 'true' : 'false');
+        });
+      });
+    });
+  </script>
+
 </div>
 
 <footer>
