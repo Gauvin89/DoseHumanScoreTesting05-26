@@ -231,7 +231,7 @@
 <header>
   <div class="container" style="padding: 0;">
     <h1>🧬 Patient R — Anonymized Human Score Demo</h1>
-    <div class="meta">24F · Pittsburgh, PA · TR-Depression Regimen · Anonymized demo · 2026-05-24</div>
+    <div class="meta">24F · Pittsburgh, PA 15214 · TR-Depression Regimen · Anonymized demo · 2026-05-24</div>
   </div>
 </header>
 
@@ -425,7 +425,7 @@
 
   <h2><span class="num">5.</span>🎯 Patient R's Human Score — Upgraded Multi-Tier Model</h2>
   <p style="color:var(--muted);">
-    Original DoctorBodyguard model: <i>0–100 composite of 8 dimensions.</i> Upgrading to a 6-tier / 18-dimension model that adds Labs, EHR integration, PGx, CGM, polygenic risk, and continuous biomarkers. Each tier contributes a weighted slice to the composite. Coverage gaps make the score's <i>predictive confidence</i> lower until those dimensions come online.
+    Original DoctorBodyguard model: <i>0–100 composite of 8 dimensions.</i> Upgrading to a <b>7-tier / 24-dimension model</b> that adds Labs, EHR integration, PGx, CGM, polygenic risk, continuous biomarkers, and <b>environmental/geographic health signals (climate + air quality + sunlight + local disease prevalence)</b>. Each tier contributes a weighted slice to the composite. Coverage gaps make the score's <i>predictive confidence</i> lower until those dimensions come online.
   </p>
 
   <div class="score-card">
@@ -476,6 +476,27 @@
   <div class="card">
     <div class="score-row"><div class="label">Medication Adherence</div><div class="bar-track"><div class="bar-fill" style="width:33%; background: var(--bad);"></div></div><div class="val" style="color:var(--bad);">33</div><div class="note">Active dispenser, 33% on-time</div></div>
     <div class="score-row"><div class="label">App / Care-team Engagement</div><div class="bar-track"><div class="bar-fill" style="width:50%; background: var(--ok);"></div></div><div class="val" style="color:var(--ok);">50</div><div class="note">No PHQ/GAD surveys, no app open analytics</div></div>
+  </div>
+
+  <h3>🌎 Tier 7 — Environmental &amp; Geographic Health</h3>
+  <p style="color:var(--muted); font-size:13px;">Based on ZIP <b>15214 (Pittsburgh North Side, PA)</b>. Climate, air quality, pollen, and sunlight exposure directly affect mood disorders, respiratory conditions, and cardiovascular outcomes.</p>
+  <div class="card">
+    <div class="score-row"><div class="label">Air Quality (PM2.5, ozone)</div><div class="bar-track"><div class="bar-fill" style="width:45%; background: var(--warn);"></div></div><div class="val" style="color:var(--warn);">45</div><div class="note">Pittsburgh: chronically elevated PM2.5. Worsens OSA hypothesis</div></div>
+    <div class="score-row"><div class="label">Sunlight / Circadian</div><div class="bar-track"><div class="bar-fill" style="width:40%; background: var(--warn);"></div></div><div class="val" style="color:var(--warn);">40</div><div class="note">4-5 winter daylight hrs · Top-10 SAD-risk MSA · compounds depression</div></div>
+    <div class="score-row"><div class="label">Pollen / Allergen Load</div><div class="bar-track"><div class="bar-fill" style="width:50%; background: var(--ok);"></div></div><div class="val" style="color:var(--ok);">50</div><div class="note">Tree-pollen peak (May-June). Loratadine indicated.</div></div>
+    <div class="score-row"><div class="label">Climate Stress (heat / cold)</div><div class="bar-track"><div class="bar-fill" style="width:65%; background: var(--ok);"></div></div><div class="val" style="color:var(--ok);">65</div><div class="note">Humid continental — moderate</div></div>
+    <div class="score-row"><div class="label">Local Disease Prevalence</div><div class="bar-track"><div class="bar-fill" style="width:55%; background: var(--ok);"></div></div><div class="val" style="color:var(--ok);">55</div><div class="note">Allegheny County depression ~22% (US avg 18%)</div></div>
+    <div class="score-row"><div class="label">Walkability / Built Environment</div><div class="bar-track"><div class="bar-fill" style="width:70%; background: var(--good);"></div></div><div class="val" style="color:var(--good);">70</div><div class="note">15214 Walk Score ~65 — supports activity</div></div>
+  </div>
+
+  <div class="info-callout">
+    <b>Why Tier 7 matters for Patient R specifically:</b>
+    <ul>
+      <li><b>Pittsburgh's poor air quality</b> directly compounds the <b>OSA / SpO2 desaturation hypothesis</b> from Tier 4. Chronic PM2.5 inflammation worsens airway resistance during sleep.</li>
+      <li><b>Limited winter sunlight</b> at 40.45°N is associated with <b>seasonal worsening of treatment-resistant depression</b> — her TR-Depression diagnosis is consistent with regional epidemiology.</li>
+      <li><b>Current tree-pollen season</b> may be amplifying systemic inflammation, with literature linking high-pollen days to worsened mood in SSRI-treated patients.</li>
+      <li><b>Climate-adjusted intervention</b>: a 10,000-lux light therapy box (30 min AM) is a low-cost, evidence-based add-on for Pittsburgh patients with SSRI-resistant MDD — should be in the prescriber's intervention menu.</li>
+    </ul>
   </div>
 
   <h3>How the new tiers would change the predictive picture for Patient R</h3>
