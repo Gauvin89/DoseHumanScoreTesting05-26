@@ -552,6 +552,109 @@
     Once those are in, this page becomes a real "are you executing the plan" tracker.
   </div>
 
+
+  <h2><span class="num">15.</span>🔌 How the Data Actually Gets Into Medesto</h2>
+  <p>For every signal in the plan above, there's a path it takes from the device or lab into Medesto's database. There are <b>5 paths</b>, each with different engineering cost and patient friction. The recommended vendor mix is chosen partly because their data flows through the cheapest paths.</p>
+
+  <h3>The 5 ingestion paths</h3>
+  <div class="card">
+    <table>
+      <thead><tr><th>Path</th><th>What it covers</th><th>Engineering</th><th>Patient friction</th></tr></thead>
+      <tbody>
+        <tr><td><b>A. Apple HealthKit (pass-through)</b></td><td>Any wearable that writes to Apple Health: Watch, Oura, Withings, Dexcom, RENPHO, Eight Sleep</td><td>✅ Already built (Build 27)</td><td>One-time HealthKit permission grant</td></tr>
+        <tr><td><b>B. Direct vendor API (OAuth)</b></td><td>Richer fields than HealthKit carries; also Whoop (no HealthKit). Withings/Oura/Dexcom/Garmin/Fitbit all have native APIs.</td><td>🟡 ~10-14 days per vendor connector</td><td>One-time OAuth per vendor</td></tr>
+        <tr><td><b>C. Apple Health Records (FHIR)</b></td><td>Hospital labs, diagnoses, immunizations from 800+ US hospital systems</td><td>🟡 ~8-12 days (iOS-side <code>HKClinicalType</code>)</td><td>One-time hospital portal connect in Apple Health</td></tr>
+        <tr><td><b>D. Clinical FHIR aggregator</b></td><td>Server-side fallback when Apple Health Records isn't available — 1upHealth, Health Gorilla, Particle Health, Redox</td><td>🔴 ~14-21 days + BAA</td><td>OAuth in dashboard</td></tr>
+        <tr><td><b>E. Manual upload + OCR</b></td><td>PDF reports from vendors with NO API: Grail Galleri, Lofta sleep test, dental records, paper lab results, DEXA imaging PDFs</td><td>🟡 ~7-10 days (AWS Textract pipeline)</td><td>Patient uploads PDF in app · AI extracts fields</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Recommended vendor stack — by API quality</h3>
+  <div class="card">
+    <table>
+      <thead><tr><th>Category</th><th>Recommended vendor</th><th>Path</th><th>API quality</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td>Watch</td><td><b>Apple Watch</b></td><td>A</td><td>⭐⭐⭐⭐⭐</td><td>Native HealthKit; broadest data ecosystem</td></tr>
+        <tr><td>Ring</td><td><b>Oura Ring</b></td><td>A + B</td><td>⭐⭐⭐⭐⭐ <a href="https://cloud.ouraring.com/v2/docs" target="_blank">Oura API v2</a></td><td>HealthKit + direct API for richer sleep architecture</td></tr>
+        <tr><td>Scale + body comp</td><td><b>Withings Body Scan</b></td><td>A + B</td><td>⭐⭐⭐⭐⭐ <a href="https://developer.withings.com" target="_blank">Withings API</a></td><td>Single OAuth unlocks scale + BP + watch + thermo</td></tr>
+        <tr><td>BP cuff</td><td><b>Withings BPM Core</b></td><td>A + B</td><td>⭐⭐⭐⭐⭐ (same Withings API)</td><td>One auth, four devices</td></tr>
+        <tr><td>CGM</td><td><b>Dexcom Stelo</b> (OTC)</td><td>A + B</td><td>⭐⭐⭐⭐⭐ <a href="https://developer.dexcom.com" target="_blank">Dexcom API</a></td><td>HealthKit + real-time API for variability metrics</td></tr>
+        <tr><td>EHR / Labs</td><td><b>UPMC MyChart</b> via Apple Health Records</td><td>C</td><td>⭐⭐⭐⭐⭐ FHIR native</td><td>Free; pulls all labs/dx/immunizations</td></tr>
+        <tr><td>Comprehensive panel</td><td><b>Function Health</b></td><td>B (partner)</td><td>⭐⭐⭐ Partner API exists</td><td>Best 100+ marker panel at consumer price</td></tr>
+        <tr><td>PGx</td><td><b>Color Health</b></td><td>B (clinical)</td><td>⭐⭐⭐⭐ <a href="https://www.color.com" target="_blank">Color B2B API</a></td><td>Best B2B integration story among PGx vendors</td></tr>
+        <tr><td>Microbiome</td><td><b>Viome</b></td><td>B (limited)</td><td>⭐⭐⭐ Partner API only</td><td>Best of a thin field</td></tr>
+        <tr><td>Aging clock</td><td><b>TruDiagnostic</b></td><td>B (partner)</td><td>⭐⭐⭐ Partner program</td><td>Most-validated methylation age</td></tr>
+        <tr><td>Mental health surveys</td><td><b>Medesto built-in</b></td><td>N/A (in-app)</td><td>⭐⭐⭐⭐⭐</td><td>No external integration needed</td></tr>
+        <tr><td>Air quality</td><td><b>Awair Element</b></td><td>B</td><td>⭐⭐⭐⭐ <a href="https://docs.developer.getawair.com" target="_blank">Awair API</a></td><td>Open API + reasonable pricing</td></tr>
+        <tr><td>Multi-cancer screening</td><td><b>Grail Galleri</b></td><td>E (PDF)</td><td>⚠️ No API</td><td>Best clinical product; needs OCR pathway</td></tr>
+        <tr><td>Home sleep test</td><td><b>Lofta (WatchPAT)</b></td><td>E (PDF)</td><td>⚠️ No API</td><td>Needs OCR pathway</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="info-callout">
+    <b>Strategic insight — Withings is the cheat code.</b> One OAuth integration unlocks scale + BP cuff + thermometer + watch + sleep tracker. The recommended stack leans on Withings hardware specifically because building 1 connector replaces 4-5 individual integrations.
+  </div>
+
+  <h3>Manual entry pathway — what the patient sees for non-API data</h3>
+  <p style="color:var(--muted); font-size:13px;">A significant chunk of clinical data (DEXA reports, Grail Galleri results, paper lab results, dental records, CAC scan reports) has no automated API path. The Medesto app needs an upload + extract pipeline.</p>
+  <div class="card">
+    <table>
+      <thead><tr><th>UI step</th><th>What the patient does</th><th>What Medesto does behind the scenes</th></tr></thead>
+      <tbody>
+        <tr><td><b>1. Add data</b></td><td>Tap "Add Result" in Health Hub → pick category (Lab / Imaging / Genomic / Other)</td><td>Routes to category-specific upload flow</td></tr>
+        <tr><td><b>2. Upload</b></td><td>Take photo of report OR import PDF from Files</td><td>Files uploaded to S3 (encrypted, HIPAA bucket)</td></tr>
+        <tr><td><b>3. Extract</b></td><td>Wait ~10 sec while AI reads it</td><td>AWS Textract OCRs the PDF · LLM (Claude or Bedrock) extracts known fields (test name, value, unit, reference range, date)</td></tr>
+        <tr><td><b>4. Confirm</b></td><td>Patient reviews extracted fields → taps "Confirm" or edits</td><td>Confirmed fields written to <code>measurements</code> or new clinical tables; raw PDF stays in S3 for audit</td></tr>
+        <tr><td><b>5. Care team review</b></td><td>(Optional) Clinician sees the new entry flagged as "patient-reported, AI-extracted"</td><td>Confidence score attached; clinician can verify before scoring</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="warn-callout">
+    <b>Manual entry caveat:</b> AI extraction is ~95% accurate for standard lab PDFs but drops for handwritten notes, multi-page reports, and non-standard formats. The "Confirm" step is non-negotiable — the patient (or staff) must accept each extracted value before it flows into the Human Score. Otherwise score quality degrades from one bad scan.
+  </div>
+
+  <h3>Phased build roadmap (engineering time estimate)</h3>
+  <div class="card">
+    <table>
+      <thead><tr><th>Phase</th><th>What</th><th>Days</th><th>Unlocks</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Expand existing iOS HealthKit sync: HRV, restingHR, VO2max, mindful, daylight, REM stages, audio, electrodermal</td><td>3-5</td><td>Tier 1 Passive Sensors fully populated for any patient with Apple Watch</td></tr>
+        <tr><td>2</td><td>"Connect Services" screen in iOS app + Withings direct API connector</td><td>10-14</td><td>Scale, BP, thermo data direct (cleaner than HealthKit pass-through)</td></tr>
+        <tr><td>3</td><td>Apple Health Records (HKClinicalType) + new clinical_observations / clinical_conditions tables</td><td>8-12</td><td>Labs, diagnoses, immunizations from any patient with UPMC/Epic/Cerner portal</td></tr>
+        <tr><td>4</td><td>In-app survey engine: PHQ-9, GAD-7, ISI, PSS-10, UCLA-3, LET-6, AUDIT-C, ACE</td><td>5-7</td><td>Mental Health dimension fully populated for every patient</td></tr>
+        <tr><td>5</td><td>Dexcom direct API (richer than HealthKit pass-through)</td><td>5-7</td><td>Real-time glucose alerts + glycemic variability</td></tr>
+        <tr><td>6</td><td>Whoop API integration (Whoop doesn't write to HealthKit)</td><td>3-5</td><td>Recovery + HRV for Whoop users</td></tr>
+        <tr><td>7</td><td>Function Health / InsideTracker partner integrations</td><td>10-14</td><td>Clean lab data without scraping EHR</td></tr>
+        <tr><td>8</td><td><b>OCR pipeline (AWS Textract + LLM extraction + Confirm UI)</b></td><td>7-10</td><td>Catches Galleri, Lofta, DEXA, paper labs, dental records</td></tr>
+        <tr><td>9</td><td>1upHealth or Health Gorilla aggregator (fallback for non-Apple-Health patients)</td><td>14-21</td><td>Server-side FHIR for Android users or those without Apple Health Records</td></tr>
+        <tr style="background: rgba(46,204,113,0.08);"><td colspan="2"><b>Total</b></td><td><b>65-95 days</b></td><td>3-4 months solo engineer · 6-8 weeks with 2</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>What this unlocks for the Human Score</h3>
+  <div class="card">
+    <table>
+      <thead><tr><th>Phase complete</th><th>Score dimensions populated (target)</th><th>Typical Human Score lift</th></tr></thead>
+      <tbody>
+        <tr><td>Today (Path A only)</td><td>4-5 of 24 (passive sensors + adherence + climate)</td><td>Baseline ~35-45</td></tr>
+        <tr><td>+ Phase 1 (full HealthKit)</td><td>7-8 of 24</td><td>+5-8 points</td></tr>
+        <tr><td>+ Phase 3 (Health Records)</td><td>14-16 of 24</td><td>+10-15 points</td></tr>
+        <tr><td>+ Phase 4 (surveys)</td><td>16-18 of 24</td><td>+5-8 points</td></tr>
+        <tr><td>+ Phase 7 (lab partners)</td><td>20-22 of 24</td><td>+8-12 points</td></tr>
+        <tr><td>+ Phase 8 (OCR for everything else)</td><td>22-24 of 24</td><td>+3-5 points (data confidence)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="info-callout">
+    <b>Bottom line for "Justin Path":</b> with all 9 phases shipped, a fully-engaged patient like you can hit a 90+ Human Score with high data confidence. Without Phases 3 + 8, no patient ever gets to populate the Labs/Clinical/Genomic tier — and that's worth roughly 25 points of composite score.
+  </div>
+
+
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       document.querySelectorAll('input[type="checkbox"][data-checklist]').forEach(function (cb) {
