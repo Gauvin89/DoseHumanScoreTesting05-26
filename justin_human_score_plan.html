@@ -224,7 +224,7 @@
 <header>
   <div class="container" style="padding: 0;">
     <h1>💪 Justin Path to 85+ Human Score</h1>
-    <div class="meta">Justin Gauvin · 37 y/o · Pittsburgh area · No daily Rx · Building toward 85+ across all 8 dimensions · Generated 2026-05-24</div>
+    <div class="meta">Justin Gauvin · 37 y/o · Brighton, MI · No daily Rx · Building toward 85+ across all 8 dimensions · Generated 2026-05-24</div>
   </div>
 </header>
 
@@ -238,10 +238,11 @@
         <tr><td><b>Patient</b></td><td>Justin Gauvin</td></tr>
         <tr><td><b>DOB</b></td><td>1989-01-09 (age 37)</td></tr>
         <tr><td><b>Sex</b></td><td>Male</td></tr>
-        <tr><td><b>Location</b></td><td>Pittsburgh, PA area (climate-adjusted scoring applies)</td></tr>
-        <tr><td><b>Medesto user_id</b></td><td><code>ab0d2eaf-83a1-451a-b4ac-5f6f37966a6c</code></td></tr>
+        <tr><td><b>Location</b></td><td>Brighton, MI (Livingston County) · Detroit metro health systems</td></tr>
+        <tr><td><b>Medesto user_id</b></td><td><code>ab0d2eaf-83a1-451a-b4ac-5f6f3796a6cb</code></td></tr>
+        <tr><td><b>Dashboard profile</b></td><td><a href="https://dashboard.medesto.io/patient/ab0d2eaf-83a1-451a-b4ac-5f6f3796a6cb" target="_blank">dashboard.medesto.io/patient/ab0d2eaf-…</a></td></tr>
         <tr><td><b>Active prescriptions</b></td><td>None — supplement stack only</td></tr>
-        <tr><td><b>Wearables</b></td><td>Apple Watch (iOS testing context — confirmed via HealthKit sync)</td></tr>
+        <tr><td><b>Wearables</b></td><td>Apple Watch (reactivating — off-wrist for several weeks; resumes sync this week)</td></tr>
         <tr><td><b>Current goal</b></td><td><b>85+ Human Score across all 8 dimensions</b></td></tr>
       </tbody>
     </table>
@@ -276,23 +277,44 @@
 
 
   <h2><span class="num">3.</span>📡 Your Current Data (from Medesto / Apple Health)</h2>
-  <p style="color:var(--muted); font-size:13px;">Pulling live from Superset is blocked right now — production Superset returned 503 at time of generation. Will populate these cells when service recovers. Cached context shown below.</p>
+  <p style="color:var(--muted); font-size:13px;">Live Superset pull pending Monday 8am wake-up (paused on weekends for cost savings). Reactivation actions you've committed to below.</p>
 
   <div class="card">
     <table>
       <thead><tr><th>Source</th><th>Status</th><th>Notes</th></tr></thead>
       <tbody>
         <tr><td><b>iOS Medesto app build</b></td><td><span class="tag good">Build 27/28 installed</span></td><td>Testing patient context — confirmed prior dispense + sync flow</td></tr>
-        <tr><td><b>Apple Watch HealthKit sync</b></td><td><span class="tag good">Active</span></td><td>Glucose / HR / sleep flowing into Medesto API (verified Build 27 commit `84be4ad`)</td></tr>
-        <tr><td><b>Steps history</b></td><td><span class="tag warn">Pending Superset</span></td><td>TBD on recovery</td></tr>
-        <tr><td><b>Sleep history</b></td><td><span class="tag warn">Pending Superset</span></td><td>TBD on recovery</td></tr>
-        <tr><td><b>HR readings</b></td><td><span class="tag warn">Pending Superset</span></td><td>TBD on recovery</td></tr>
-        <tr><td><b>BP readings</b></td><td><span class="tag bad">None yet</span></td><td>Recommend Omron Platinum, weekly</td></tr>
-        <tr><td><b>Labs</b></td><td><span class="tag bad">No EHR connected</span></td><td>Recommend Function Health annual baseline</td></tr>
+        <tr><td><b>Apple Watch</b></td><td><span class="tag warn">Reactivating this week</span></td><td>Off-wrist for several weeks — putting it back on; sleep + HR + HRV resume once worn 2-3 nights</td></tr>
+        <tr><td><b>HealthKit sync pipeline</b></td><td><span class="tag good">Verified working</span></td><td>Glucose / HR / sleep flow into Medesto API (Build 27 commit <code>84be4ad</code>)</td></tr>
+        <tr><td><b>Smart scale (Withings)</b></td><td><span class="tag warn">Connecting this week</span></td><td>Pending Withings Body+ or Body Scan setup → daily weight + body comp into HealthKit</td></tr>
+        <tr><td><b>BP cuff reading</b></td><td><span class="tag warn">Scheduled Tue 2026-05-27</span></td><td>First baseline reading committed; recommend weekly cadence after</td></tr>
+        <tr><td><b>Steps history</b></td><td><span class="tag warn">Pending Superset (Mon 8am)</span></td><td>Will pull lifetime steps + last 30-day trend</td></tr>
+        <tr><td><b>Sleep history</b></td><td><span class="tag warn">Pending Superset (Mon 8am)</span></td><td>Sleep gaps expected during off-wrist weeks</td></tr>
+        <tr><td><b>HR readings</b></td><td><span class="tag warn">Pending Superset (Mon 8am)</span></td><td>HR by hour pattern will populate after 2-3 days of Watch wear</td></tr>
+        <tr><td><b>Labs</b></td><td><span class="tag bad">No EHR connected</span></td><td>U Michigan / Henry Ford MyChart via Apple Health Records (free), or Function Health annual ($499)</td></tr>
         <tr><td><b>Genomic (PGx, 23andMe)</b></td><td><span class="tag bad">None</span></td><td>Recommend one-time PGx + 23andMe</td></tr>
-        <tr><td><b>Body composition</b></td><td><span class="tag bad">None</span></td><td>Recommend Withings Body Scan + annual DEXA</td></tr>
+        <tr><td><b>Body composition (DEXA)</b></td><td><span class="tag bad">None</span></td><td>Annual scan recommended; smart scale daily covers basics</td></tr>
       </tbody>
     </table>
+  </div>
+
+  <h3>🔁 Reactivation timeline (this week)</h3>
+  <div class="card">
+    <table>
+      <thead><tr><th>Day</th><th>Action</th><th>What it unlocks</th></tr></thead>
+      <tbody>
+        <tr><td><b>Sun 5/24</b></td><td>Plan baseline (this doc)</td><td>Roadmap committed</td></tr>
+        <tr><td><b>Mon 5/25</b></td><td>Apple Watch back on wrist · charge cycle in shower routine · Superset wakes 8am</td><td>Step + HR + activity sync resumes · live data pull populates Section 3</td></tr>
+        <tr><td><b>Mon-Tue night</b></td><td>First night of Watch sleep tracking (2-3 nights for trend baseline)</td><td>Sleep duration + stages + SpO2 baseline · HR by hour after 7 days of wear</td></tr>
+        <tr><td><b>Tue 5/26</b></td><td><b>BP cuff baseline reading</b> (committed)</td><td>Cardio dimension gets first data point · weekly cadence triggered</td></tr>
+        <tr><td><b>This week</b></td><td>Withings smart scale unboxed + paired to Apple Health</td><td>Metabolic dimension starts daily body comp tracking</td></tr>
+        <tr><td><b>Next week</b></td><td>Decide: PGx + Lp(a) + 23andMe + Function Health order (Phase 1 of 90-day rollout)</td><td>Labs + Genomic tiers begin populating in 2-4 weeks</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="info-callout">
+    <b>Watch reactivation note:</b> after weeks off-wrist, HealthKit will show a gap. Score will display "data-confidence: low" until 7-14 days of continuous wear establish a new baseline. Resting HR + HRV trends specifically need ~10 nights to be reliable. Don't trust the score numbers until Memorial Day-ish.
   </div>
 
 
@@ -372,7 +394,7 @@
         <tr><td><b>CoQ10 (Ubiquinol)</b></td><td>100-200 mg</td><td>Mitochondrial, cardiovascular, energy</td><td><a href="https://qunol.com" target="_blank">Qunol</a> · <a href="https://www.jarrow.com" target="_blank">Jarrow</a></td><td>$200-300</td></tr>
         <tr><td><b>Creatine monohydrate</b></td><td>5 g/day</td><td>Muscle · bone density · cognitive function</td><td>Thorne · Klean Athlete</td><td>$180-300</td></tr>
         <tr><td><b>Protein powder</b></td><td>25-40 g</td><td>Muscle maintenance · satiety · glucose control</td><td><a href="https://www.ascentprotein.com" target="_blank">Ascent Native Whey</a> · Garden of Life</td><td>$480-840</td></tr>
-        <tr><td><b>Vitamin D3 + K2</b></td><td>2-5K IU + 90 mcg</td><td>Bone · mood · immune (often deficient in PGH)</td><td>Thorne D/K2</td><td>$40-80</td></tr>
+        <tr><td><b>Vitamin D3 + K2</b></td><td>2-5K IU + 90 mcg</td><td>Bone · mood · immune (often deficient in MI winter)</td><td>Thorne D/K2</td><td>$40-80</td></tr>
         <tr><td><b>Omega-3 (EPA/DHA)</b></td><td>2-4 g</td><td>Cardiovascular · brain · anti-inflammatory</td><td>Carlson Wild Caught</td><td>$120-300</td></tr>
         <tr><td><b>Magnesium glycinate</b></td><td>200-400 mg PM</td><td>Sleep · BP · glucose</td><td>Pure Encapsulations</td><td>$80-180</td></tr>
         <tr style="background: rgba(46,204,113,0.08);"><td colspan="4"><b>Subtotal — Supplements</b></td><td><b>~$1,520-2,950/yr</b></td></tr>
@@ -437,7 +459,7 @@
       <li>Add Lp(a) blood test (one-time, lifetime)</li>
       <li>Order 23andMe Health</li>
       <li>Start supplement stack (multi + CoQ10 + creatine + protein)</li>
-      <li>Connect Apple Health Clinical Records (if any UPMC / hospital data exists)</li>
+      <li>Connect Apple Health Clinical Records (if any U Michigan / Henry Ford / IHA hospital portals)</li>
     </ul>
     <p style="color:var(--muted); font-size:12px;">→ Result: Massive baseline data dump · Labs &amp; Genomic dimensions go from 0 to 90+</p>
   </div>
@@ -479,7 +501,7 @@
         <tr><td><b>Sedentary deep-work weeks</b></td><td>Tech entrepreneur trap · tanks Activity score</td><td>Standing desk · walking meetings · 8K daily min</td></tr>
         <tr><td><b>Untracked stress</b></td><td>Cortisol → BP, glucose, sleep, mood</td><td>Quarterly PSS-10 · meditation log · HRV trend watch</td></tr>
         <tr><td><b>Skipping the annual labs</b></td><td>Score loses data confidence → drops</td><td>Calendar reminder Q1 · Function Health auto-renews</td></tr>
-        <tr><td><b>Pittsburgh light deprivation</b></td><td>40.45° N latitude · winter SAD risk even for non-clinical</td><td>10K lux light therapy box ($50-100) AM 30 min · Nov-Mar</td></tr>
+        <tr><td><b>Michigan light deprivation</b></td><td>42.5° N latitude (Brighton) · winter SAD risk even for non-clinical</td><td>10K lux light therapy box ($50-100) AM 30 min · Nov-Mar</td></tr>
       </tbody>
     </table>
   </div>
@@ -532,7 +554,7 @@
         <tr><td><input type="checkbox" data-checklist="j-hearing"></td><td>Take baseline hearing test</td><td>$0-150</td><td><a href="https://mimi.health" target="_blank">Mimi app</a></td></tr>
         <tr><td><input type="checkbox" data-checklist="j-galleri"></td><td>(Optional) Grail Galleri</td><td>$949</td><td><a href="https://www.galleri.com" target="_blank">galleri.com</a></td></tr>
         <tr><td><input type="checkbox" data-checklist="j-microbiome"></td><td>(Optional) Microbiome test</td><td>$200-300</td><td><a href="https://www.viome.com" target="_blank">Viome</a> or <a href="https://zoe.com" target="_blank">ZOE</a></td></tr>
-        <tr><td><input type="checkbox" data-checklist="j-light"></td><td>(Pittsburgh winter) Buy 10K lux light box</td><td>$50-100</td><td>Verilux / Carex</td></tr>
+        <tr><td><input type="checkbox" data-checklist="j-light"></td><td>(Michigan winter) Buy 10K lux light box</td><td>$50-100</td><td>Verilux / Carex</td></tr>
       </tbody>
     </table>
   </div>
@@ -580,7 +602,7 @@
         <tr><td>Scale + body comp</td><td><b>Withings Body Scan</b></td><td>A + B</td><td>⭐⭐⭐⭐⭐ <a href="https://developer.withings.com" target="_blank">Withings API</a></td><td>Single OAuth unlocks scale + BP + watch + thermo</td></tr>
         <tr><td>BP cuff</td><td><b>Withings BPM Core</b></td><td>A + B</td><td>⭐⭐⭐⭐⭐ (same Withings API)</td><td>One auth, four devices</td></tr>
         <tr><td>CGM</td><td><b>Dexcom Stelo</b> (OTC)</td><td>A + B</td><td>⭐⭐⭐⭐⭐ <a href="https://developer.dexcom.com" target="_blank">Dexcom API</a></td><td>HealthKit + real-time API for variability metrics</td></tr>
-        <tr><td>EHR / Labs</td><td><b>UPMC MyChart</b> via Apple Health Records</td><td>C</td><td>⭐⭐⭐⭐⭐ FHIR native</td><td>Free; pulls all labs/dx/immunizations</td></tr>
+        <tr><td>EHR / Labs</td><td><b>U Michigan / Henry Ford MyChart</b> via Apple Health Records</td><td>C</td><td>⭐⭐⭐⭐⭐ FHIR native</td><td>Free; pulls all labs/dx/immunizations</td></tr>
         <tr><td>Comprehensive panel</td><td><b>Function Health</b></td><td>B (partner)</td><td>⭐⭐⭐ Partner API exists</td><td>Best 100+ marker panel at consumer price</td></tr>
         <tr><td>PGx</td><td><b>Color Health</b></td><td>B (clinical)</td><td>⭐⭐⭐⭐ <a href="https://www.color.com" target="_blank">Color B2B API</a></td><td>Best B2B integration story among PGx vendors</td></tr>
         <tr><td>Microbiome</td><td><b>Viome</b></td><td>B (limited)</td><td>⭐⭐⭐ Partner API only</td><td>Best of a thin field</td></tr>
@@ -623,7 +645,7 @@
       <tbody>
         <tr><td>1</td><td>Expand existing iOS HealthKit sync: HRV, restingHR, VO2max, mindful, daylight, REM stages, audio, electrodermal</td><td>3-5</td><td>Tier 1 Passive Sensors fully populated for any patient with Apple Watch</td></tr>
         <tr><td>2</td><td>"Connect Services" screen in iOS app + Withings direct API connector</td><td>10-14</td><td>Scale, BP, thermo data direct (cleaner than HealthKit pass-through)</td></tr>
-        <tr><td>3</td><td>Apple Health Records (HKClinicalType) + new clinical_observations / clinical_conditions tables</td><td>8-12</td><td>Labs, diagnoses, immunizations from any patient with UPMC/Epic/Cerner portal</td></tr>
+        <tr><td>3</td><td>Apple Health Records (HKClinicalType) + new clinical_observations / clinical_conditions tables</td><td>8-12</td><td>Labs, diagnoses, immunizations from any patient with U Michigan, Henry Ford, Trinity Health MI, IHA, Epic, Cerner portals</td></tr>
         <tr><td>4</td><td>In-app survey engine: PHQ-9, GAD-7, ISI, PSS-10, UCLA-3, LET-6, AUDIT-C, ACE</td><td>5-7</td><td>Mental Health dimension fully populated for every patient</td></tr>
         <tr><td>5</td><td>Dexcom direct API (richer than HealthKit pass-through)</td><td>5-7</td><td>Real-time glucose alerts + glycemic variability</td></tr>
         <tr><td>6</td><td>Whoop API integration (Whoop doesn't write to HealthKit)</td><td>3-5</td><td>Recovery + HRV for Whoop users</td></tr>
