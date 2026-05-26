@@ -254,8 +254,8 @@
       <thead><tr><th>Metric</th><th>Latest</th><th>Trend / Range</th><th>Source</th></tr></thead>
       <tbody>
         <tr><td><b>Weight (current)</b></td><td><b>184.3 lbs</b> (2026-03-13)</td><td>Stable 183–188 lbs last 6 mo · gained ~7 lbs over 4 yrs (~177 → ~185)</td><td>Withings Body Pro scale (548 readings since 2022-04-23)</td></tr>
-        <tr><td><b>Height</b></td><td><span class="tag warn">Needs confirmation</span></td><td>DB value (305) is junk seed data. <b>Please confirm your actual height</b> so BMI locks in.</td><td>—</td></tr>
-        <tr><td><b>BMI (provisional)</b></td><td><b>~26.4</b> @ 5'10" · <b>~25.0</b> @ 6'0"</td><td>At 184 lbs — borderline normal/overweight depending on actual height. Recompute once height confirmed.</td><td>Calculated</td></tr>
+        <tr><td><b>Height</b></td><td><b>5'10" (70 in · 178 cm)</b></td><td>Confirmed by Justin 2026-05-26</td><td>—</td></tr>
+        <tr><td><b>BMI</b></td><td><b>26.4 — Overweight</b></td><td>Target &lt;25 (= <b>≤174 lbs</b>, 10-lb drop). Target &lt;23 for longevity-optimal (= ≤160 lbs, 24-lb drop).</td><td>Calculated 184.3 lbs / 5'10"</td></tr>
         <tr><td><b>Blood Pressure</b></td><td><b>126/75</b> (2025-10-22) · HR 75</td><td>Last 5 readings 2024–25: 115/72 → 131/79 → 126/75 = <b>Elevated / Stage 1 borderline</b>. Lifetime avg 129/80.</td><td>Withings BPM Connect Pro + Smart BP cuff (485 readings since 2020)</td></tr>
         <tr><td><b>Resting HR</b></td><td><b>~72 bpm</b> lifetime avg</td><td>Range 41–155 across activity · Apple Watch recording active</td><td>5,249 HR readings · Apple Watch (last 2026-04-16)</td></tr>
         <tr><td><b>SpO2</b></td><td><b>96–97%</b> recent</td><td>1,283 readings since 2023 · normal range</td><td>Apple Watch + SMC-OX pulse-ox</td></tr>
@@ -268,6 +268,67 @@
 
   <div class="info-callout">
     <b>Quick read on your current numbers:</b> Weight stable. CGM time-in-range is elite (99.9%). HR + SpO2 normal. <b>The one yellow flag is BP — your average 129/80 sits at Elevated→Stage 1 borderline.</b> Tuesday's home cuff reading will tell us if that's a 2024-era artifact or a current pattern worth addressing through supplement stack + cardio cadence.
+  </div>
+
+  <h3>🧬 Longevity Markers — Where You Are vs Optimal</h3>
+  <p style="color:var(--muted); font-size:13px;">Cross-walk of your Medesto data against the longevity-medicine targets (Attia / Sinclair / Function Health / AHA Life's Essential 8). Green = on-track. Yellow = action item. Red = unknown / needs test.</p>
+
+  <div class="card">
+    <table>
+      <thead><tr><th>Marker</th><th>Your value</th><th>Longevity target</th><th>Status</th><th>Action for Justin</th></tr></thead>
+      <tbody>
+        <tr><td><b>BMI</b></td><td>26.4</td><td>&lt;25 ideal · &lt;23 longevity-optimal</td><td><span class="tag warn">Overweight</span></td><td>Drop 10 lbs (→174) to clear BMI threshold; 24 lbs (→160) hits the Attia "tactical" zone</td></tr>
+        <tr><td><b>Resting HR</b></td><td>~72 bpm avg</td><td>&lt;65 (Copenhagen study: each +10 bpm = +16% all-cause mortality risk)</td><td><span class="tag warn">Borderline</span></td><td>Z2 cardio 3×/wk · drop alcohol within 3 hr of sleep · target &lt;60 within 6 mo</td></tr>
+        <tr><td><b>Resting BP</b></td><td>Avg 129/80 · last 126/75</td><td>&lt;120/80 (AHA optimal)</td><td><span class="tag warn">Elevated</span></td><td>Magnesium 400mg PM, omega-3 2g, &lt;2300mg sodium, weekly home cuff, retest in 8 wk</td></tr>
+        <tr><td><b>HRV (rMSSD)</b></td><td>Unknown (watch off-wrist)</td><td>&gt;50ms = good · &gt;70ms = elite for age 37M</td><td><span class="tag bad">Capture pending</span></td><td>Apple Watch back on this week — 14 days will baseline; Oura ring adds night HRV</td></tr>
+        <tr><td><b>VO2 max</b></td><td>Not measured</td><td>&gt;49 ml/kg/min (top quartile, M 30–39) = +5 yr life expectancy</td><td><span class="tag bad">Test needed</span></td><td>Apple Watch estimate available after 4 wk wear · or one-shot CPET at sports-med clinic ($150)</td></tr>
+        <tr><td><b>Grip strength</b></td><td>Not measured</td><td>&gt;40 kg (M) — strongest known longevity marker</td><td><span class="tag bad">Test needed</span></td><td>$25 Camry hand dynamometer · test both hands quarterly</td></tr>
+        <tr><td><b>ApoB</b></td><td>Not tested</td><td>&lt;60 mg/dL primary prevention · &lt;80 general (most predictive lipid for cardio risk per Attia)</td><td><span class="tag bad">Test needed</span></td><td><b>Function Health panel includes it.</b> Highest-leverage single lab for your age</td></tr>
+        <tr><td><b>Lp(a)</b></td><td>Not tested</td><td>&lt;30 mg/dL · genetic — measure ONCE in life</td><td><span class="tag bad">Test needed</span></td><td>One-time test (~$15 standalone or bundled in Function Health). 20% of population has elevated genetic Lp(a) — non-modifiable but changes treatment plan if positive</td></tr>
+        <tr><td><b>hs-CRP</b></td><td>Not tested</td><td>&lt;1.0 mg/L = low risk · &lt;0.5 = optimal</td><td><span class="tag bad">Test needed</span></td><td>Function Health includes; track quarterly</td></tr>
+        <tr><td><b>HbA1c (est. from CGM)</b></td><td><b>~5.0%</b> (from CGM avg 97)</td><td>&lt;5.4% optimal · &lt;5.0% longevity-elite</td><td><span class="tag good">Excellent</span></td><td>Maintain via CGM rotation 2-week wear quarterly</td></tr>
+        <tr><td><b>HOMA-IR (insulin sensitivity)</b></td><td>Not tested</td><td>&lt;1.5 = sensitive · &gt;2.5 = resistant</td><td><span class="tag bad">Test needed</span></td><td>Fasting insulin + glucose lab — Function Health includes both</td></tr>
+        <tr><td><b>Visceral fat (DEXA)</b></td><td>Old 2020 Withings only</td><td>&lt;1 lb visceral · total body fat &lt;20% (M)</td><td><span class="tag bad">Refresh needed</span></td><td>Annual DEXA ($45–125) — better than scale for visceral; Brighton MI: BodySpec mobile DEXA visits</td></tr>
+        <tr><td><b>Sleep duration</b></td><td>8.2 hrs avg · 95.8% eff</td><td>7–8.5 hrs · &gt;85% efficiency</td><td><span class="tag good">Excellent</span></td><td>Watch the right-tail variance — protect weekends from late-night drift</td></tr>
+        <tr><td><b>Sleep apnea risk</b></td><td>Unknown</td><td>AHI &lt;5 events/hr</td><td><span class="tag warn">Screen recommended</span></td><td>BMI 26 + weight gain + male age 37 = moderate pretest probability; Withings Sleep Analyzer ($129) or single-night home study via Lofta ($189)</td></tr>
+        <tr><td><b>CGM time-in-range</b></td><td>99.9% (70–180)</td><td>&gt;90% AGP standard · &gt;95% elite</td><td><span class="tag good">Elite</span></td><td>Strongest single metabolic signal you have — keep CGM rotation quarterly</td></tr>
+        <tr><td><b>Omega-3 index</b></td><td>Not tested</td><td>&gt;8% = optimal (Framingham subgroup)</td><td><span class="tag bad">Test needed</span></td><td>Quest fingerstick $50 · or bundled in Function Health quarterly</td></tr>
+        <tr><td><b>Vitamin D</b></td><td>Not tested</td><td>40–60 ng/mL (Brighton MI = winter deficiency zone)</td><td><span class="tag bad">Test needed</span></td><td>Function Health · 2000 IU baseline supplement Oct–Mar</td></tr>
+        <tr><td><b>Testosterone (total/free)</b></td><td>Not tested</td><td>Total 600–900 ng/dL · free 100–200 pg/mL (M 35–40)</td><td><span class="tag bad">Test needed</span></td><td>Baseline at 37 lets you see decade-over-decade decline; AM draw essential</td></tr>
+        <tr><td><b>Methylation/Biological age</b></td><td>Unknown</td><td>Biological &lt; chronological (37) ideally by 3–5 yrs</td><td><span class="tag bad">Test needed</span></td><td>TruDiagnostic TruAge Complete $299 · annual to track delta</td></tr>
+        <tr><td><b>Coronary calcium (CAC)</b></td><td>Not done</td><td>0 Agatston · age 40+ standard</td><td><span class="tag muted">Defer to age 40</span></td><td>If ApoB or Lp(a) come back elevated, accelerate to now; $150 self-pay scan</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>🎯 Top 5 Longevity Moves — Justin Specifically</h3>
+  <div class="card">
+    <table>
+      <thead><tr><th>#</th><th>Move</th><th>Why it's #1-#5 for you</th><th>Cost / ETA</th></tr></thead>
+      <tbody>
+        <tr><td><b>1</b></td><td><b>Function Health annual panel</b></td><td>Single biggest data unlock — gives you ApoB, Lp(a), hs-CRP, HOMA-IR, omega-3, vit D, testosterone, thyroid in one shot. Closes ~10 of the red rows above at once.</td><td>$499 · results in 2 wk</td></tr>
+        <tr><td><b>2</b></td><td><b>Lose 10 lbs (184 → 174)</b></td><td>Clears BMI threshold, likely drops resting BP &amp; HR by themselves, improves HRV. The two yellow flags you have today (BP, RHR) are both weight-coupled.</td><td>Free · 12–16 wk at ~0.6 lb/wk</td></tr>
+        <tr><td><b>3</b></td><td><b>Apple Watch back on wrist (this week)</b></td><td>Unlocks HRV, VO2 max estimate, nocturnal SpO2 trend (apnea screen), continuous RHR. Four longevity markers reactivated at zero cost.</td><td>$0 · live in 14 days</td></tr>
+        <tr><td><b>4</b></td><td><b>Z2 cardio cadence — 180 min/wk</b></td><td>Most direct lever on both your yellow flags (RHR ↓, BP ↓) plus VO2 max ↑. Brighton MI = bike Kensington Metropark in summer, indoor in winter.</td><td>$0 · effect visible 6–8 wk</td></tr>
+        <tr><td><b>5</b></td><td><b>One-time PGx + Lp(a) + TruDiagnostic baseline</b></td><td>Three "do once, know forever" tests. Lp(a) is genetic — answer doesn't change. PGx informs every drug interaction for the rest of your life. TruAge gives a biological-age baseline to track decade-over-decade.</td><td>~$650 combined · all results in 30 days</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>⚠️ Three Risks Your Data Surfaces Today</h3>
+  <div class="card">
+    <table>
+      <thead><tr><th>Risk</th><th>Signal in your data</th><th>What to do</th></tr></thead>
+      <tbody>
+        <tr><td><b>Cardio drift in your 40s</b></td><td>BP avg 129/80 + RHR ~72 + 7 lb weight gain over 4 yrs = early metabolic-cardio drift pattern. Not alarming at 37 but the slope is real.</td><td>ApoB + Lp(a) now · BP cuff weekly · 10 lb drop · Z2 cadence 3×/wk. Re-evaluate in 6 mo.</td></tr>
+        <tr><td><b>Undetected sleep apnea</b></td><td>BMI 26 + male + occasional 99–100% SpO2 / 88% night dips visible in your readings. Home study before adding sleep-eroding habits like alcohol.</td><td>14 nights nocturnal SpO2 from Apple Watch + Lofta home test if any night drops &lt;90%. $189.</td></tr>
+        <tr><td><b>Vitamin D winter deficit (Brighton MI)</b></td><td>42.5°N latitude · Oct–Mar UV-B = zero · likely indoor work · no current lab data.</td><td>Baseline 25-OH-D now · 2000 IU daily Oct–Mar · re-test March 2027. Cheap, impactful, no downside.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="info-callout">
+    <b>The longevity picture from your Medesto data is genuinely good.</b> Two of the hardest metabolic markers (CGM TIR 99.9% and sleep 8.2 hrs / 95.8% efficiency) are already elite. You have no chronic Rx burden. The work to hit a top-decile biological-age delta is mostly: <b>lose 10 lbs, get the watch back on, run one Function Health panel.</b> That alone moves you from ~6 unknowns to 1 unknown across the longevity-marker board.
   </div>
 
   <div class="info-callout">
