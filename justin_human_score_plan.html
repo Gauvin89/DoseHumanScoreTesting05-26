@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Justin Path to 85+ Human Score</title>
+<title>Justin Path to 85+ Longevity Score</title>
 <style>
   :root {
     --bg: #0b1020;
@@ -117,8 +117,23 @@
     text-align: center;
     margin: 18px 0;
   }
+  .score-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 18px 0;
+  }
+  @media (max-width: 720px) {
+    .score-grid { grid-template-columns: 1fr; }
+  }
+  .score-card.current {
+    background: linear-gradient(135deg, #2a2010 0%, #3a3018 100%);
+  }
+  .score-card.target {
+    background: linear-gradient(135deg, #1a2240 0%, #2a3458 100%);
+  }
   .score-big {
-    font-size: 96px;
+    font-size: 88px;
     font-weight: 800;
     background: linear-gradient(135deg, #4976df 0%, #2ecc71 100%);
     -webkit-background-clip: text;
@@ -126,10 +141,34 @@
     background-clip: text;
     line-height: 1;
   }
+  .score-card.current .score-big {
+    background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
   .score-label {
     color: var(--muted);
     font-size: 14px;
     margin-top: 4px;
+  }
+  .score-meta {
+    margin-top: 12px;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.5;
+  }
+  .ensemble-bar {
+    margin-top: 14px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 6px;
+    height: 8px;
+    overflow: hidden;
+  }
+  .ensemble-fill {
+    height: 100%;
+    border-radius: 6px;
+    transition: width 0.3s;
   }
   .score-row {
     display: flex;
@@ -223,8 +262,8 @@
 
 <header>
   <div class="container" style="padding: 0;">
-    <h1>💪 Justin Path to 85+ Human Score</h1>
-    <div class="meta">Justin Gauvin · 37 y/o · Brighton, MI · No daily Rx · Building toward 85+ across all 8 dimensions · Generated 2026-05-24</div>
+    <h1>💪 Justin Path to 85+ Longevity Score</h1>
+    <div class="meta">Justin Gauvin · 37 y/o · Brighton, MI · No daily Rx · Current Longevity Score <b>72</b> → Target <b>85+</b> across all 8 dimensions · UCLA Health labs Dec 2024 integrated · Updated 2026-05-26</div>
   </div>
 </header>
 
@@ -243,7 +282,7 @@
         <tr><td><b>Dashboard profile</b></td><td><a href="https://dashboard.medesto.io/patient/ab0d2eaf-83a1-451a-b4ac-5f6f3796a6cb" target="_blank">dashboard.medesto.io/patient/ab0d2eaf-…</a></td></tr>
         <tr><td><b>Active prescriptions</b></td><td>None — supplement stack only</td></tr>
         <tr><td><b>Wearables</b></td><td>Apple Watch (reactivating — off-wrist for several weeks; resumes sync this week)</td></tr>
-        <tr><td><b>Current goal</b></td><td><b>85+ Human Score across all 8 dimensions</b></td></tr>
+        <tr><td><b>Current goal</b></td><td><b>85+ Longevity Score across all 8 dimensions</b></td></tr>
       </tbody>
     </table>
   </div>
@@ -253,11 +292,11 @@
     <table>
       <thead><tr><th>Metric</th><th>Latest</th><th>Trend / Range</th><th>Source</th></tr></thead>
       <tbody>
-        <tr><td><b>Weight (current)</b></td><td><b>184.3 lbs</b> (2026-03-13)</td><td>Stable 183–188 lbs last 6 mo · gained ~7 lbs over 4 yrs (~177 → ~185)</td><td>Withings Body Pro scale (548 readings since 2022-04-23)</td></tr>
-        <tr><td><b>Height</b></td><td><b>5'10" (70 in · 178 cm)</b></td><td>Confirmed by Justin 2026-05-26</td><td>—</td></tr>
+        <tr><td><b>Weight (current)</b></td><td><b>184.3 lbs</b> (Medesto 2026-03-13)</td><td>Stable 183–188 lbs last 6 mo · UCLA visits Nov–Dec 2024 logged 185–187 lbs · gained ~7 lbs over 4 yrs</td><td>Withings Body Pro (548 readings since 2022) + UCLA clinic</td></tr>
+        <tr><td><b>Height</b></td><td><b>5'10" (70 in · 177.8 cm)</b></td><td>Confirmed at UCLA Nov 25 2024 (177.8 cm) and Dec 9 2024 (176 cm)</td><td>UCLA Health · Justin</td></tr>
         <tr><td><b>BMI</b></td><td><b>26.4 — Overweight</b></td><td>Target &lt;25 (= <b>≤174 lbs</b>, 10-lb drop). Target &lt;23 for longevity-optimal (= ≤160 lbs, 24-lb drop).</td><td>Calculated 184.3 lbs / 5'10"</td></tr>
-        <tr><td><b>Blood Pressure</b></td><td><b>126/75</b> (2025-10-22) · HR 75</td><td>Last 5 readings 2024–25: 115/72 → 131/79 → 126/75 = <b>Elevated / Stage 1 borderline</b>. Lifetime avg 129/80.</td><td>Withings BPM Connect Pro + Smart BP cuff (485 readings since 2020)</td></tr>
-        <tr><td><b>Resting HR</b></td><td><b>~72 bpm</b> lifetime avg</td><td>Range 41–155 across activity · Apple Watch recording active</td><td>5,249 HR readings · Apple Watch (last 2026-04-16)</td></tr>
+        <tr><td><b>Blood Pressure</b></td><td><b>121/80 + 134/75</b> (UCLA Dec 9 2024) · Medesto last 126/75</td><td>UCLA clinic readings concordant with Medesto avg 129/80 = <b>Elevated / Stage 1 borderline</b>. Two readings same visit = white-coat plus real signal</td><td>UCLA clinic + Withings BPM Connect Pro (485 readings since 2020)</td></tr>
+        <tr><td><b>Resting HR</b></td><td><b>61–65 bpm</b> clinic (UCLA Dec 2024) · ~72 lifetime device avg</td><td>UCLA clinic = true resting (lower!); Watch lifetime avg pulled up by activity. Clinic HR is in <b>elite longevity zone</b> (&lt;65)</td><td>UCLA clinic + 5,249 Apple Watch readings</td></tr>
         <tr><td><b>SpO2</b></td><td><b>96–97%</b> recent</td><td>1,283 readings since 2023 · normal range</td><td>Apple Watch + SMC-OX pulse-ox</td></tr>
         <tr><td><b>CGM (Dexcom)</b></td><td><b>97 mg/dL avg</b> (Jan–Feb 2026)</td><td>TIR 99.9% (70–180) · max 189 · SD 15.7 · <b>excellent glycemic control</b></td><td>3,500 CGM readings (2-week wear)</td></tr>
         <tr><td><b>Sleep</b></td><td><b>~8.2 hrs avg</b> · 95.8% efficiency</td><td>60 nights tracked Jan–Apr 2026 (gaps when watch off)</td><td>Apple Watch sleep</td></tr>
@@ -283,18 +322,23 @@
         <tr><td><b>HRV (rMSSD)</b></td><td>Unknown (watch off-wrist)</td><td>&gt;50ms = good · &gt;70ms = elite for age 37M</td><td><span class="tag bad">Capture pending</span></td><td>Apple Watch back on this week — 14 days will baseline; Oura ring adds night HRV</td></tr>
         <tr><td><b>VO2 max</b></td><td>Not measured</td><td>&gt;49 ml/kg/min (top quartile, M 30–39) = +5 yr life expectancy</td><td><span class="tag bad">Test needed</span></td><td>Apple Watch estimate available after 4 wk wear · or one-shot CPET at sports-med clinic ($150)</td></tr>
         <tr><td><b>Grip strength</b></td><td>Not measured</td><td>&gt;40 kg (M) — strongest known longevity marker</td><td><span class="tag bad">Test needed</span></td><td>$25 Camry hand dynamometer · test both hands quarterly</td></tr>
-        <tr><td><b>ApoB</b></td><td>Not tested</td><td>&lt;60 mg/dL primary prevention · &lt;80 general (most predictive lipid for cardio risk per Attia)</td><td><span class="tag bad">Test needed</span></td><td><b>Function Health panel includes it.</b> Highest-leverage single lab for your age</td></tr>
+        <tr><td><b>LDL · HDL · Trig</b></td><td><b>84 · 62 · 41</b> mg/dL (UCLA Dec 2024)</td><td>LDL &lt;100 · HDL &gt;40 · Trig &lt;150 · Trig:HDL &lt;1.0</td><td><span class="tag good">Elite</span></td><td>Maintain. Re-test annually.</td></tr>
+        <tr><td><b>ApoB</b></td><td>Not tested</td><td>&lt;60 mg/dL primary prevention · &lt;80 general (most predictive lipid for cardio risk per Attia)</td><td><span class="tag bad">Test needed</span></td><td><b>Function Health panel includes it.</b> Even with great LDL, ApoB tells you true particle count — small-dense LDL can hide in a "normal" lipid panel</td></tr>
         <tr><td><b>Lp(a)</b></td><td>Not tested</td><td>&lt;30 mg/dL · genetic — measure ONCE in life</td><td><span class="tag bad">Test needed</span></td><td>One-time test (~$15 standalone or bundled in Function Health). 20% of population has elevated genetic Lp(a) — non-modifiable but changes treatment plan if positive</td></tr>
         <tr><td><b>hs-CRP</b></td><td>Not tested</td><td>&lt;1.0 mg/L = low risk · &lt;0.5 = optimal</td><td><span class="tag bad">Test needed</span></td><td>Function Health includes; track quarterly</td></tr>
-        <tr><td><b>HbA1c (est. from CGM)</b></td><td><b>~5.0%</b> (from CGM avg 97)</td><td>&lt;5.4% optimal · &lt;5.0% longevity-elite</td><td><span class="tag good">Excellent</span></td><td>Maintain via CGM rotation 2-week wear quarterly</td></tr>
-        <tr><td><b>HOMA-IR (insulin sensitivity)</b></td><td>Not tested</td><td>&lt;1.5 = sensitive · &gt;2.5 = resistant</td><td><span class="tag bad">Test needed</span></td><td>Fasting insulin + glucose lab — Function Health includes both</td></tr>
+        <tr><td><b>HbA1c (UCLA Dec 2024)</b></td><td><b>5.7%</b> (lab) vs <b>~5.0%</b> (CGM est)</td><td>&lt;5.7% normal · 5.7–6.4% prediabetic · &lt;5.0% longevity-elite</td><td><span class="tag warn">Conflict — retest</span></td><td><b>Discrepancy:</b> lab A1c at prediabetic border, but CGM TIR 99.9% says ~5.0%. Re-draw in 3 mo with simultaneous 14-day CGM wear to reconcile.</td></tr>
+        <tr><td><b>Insulin · HOMA-IR</b></td><td><b>3 uU/mL · HOMA-IR 0.67</b> (UCLA Dec 2024)</td><td>&lt;1.5 = sensitive · &gt;2.5 = resistant</td><td><span class="tag good">Elite</span></td><td>Top-decile insulin sensitivity. Strongest argument against the prediabetic A1c reading being real.</td></tr>
         <tr><td><b>Visceral fat (DEXA)</b></td><td>Old 2020 Withings only</td><td>&lt;1 lb visceral · total body fat &lt;20% (M)</td><td><span class="tag bad">Refresh needed</span></td><td>Annual DEXA ($45–125) — better than scale for visceral; Brighton MI: BodySpec mobile DEXA visits</td></tr>
         <tr><td><b>Sleep duration</b></td><td>8.2 hrs avg · 95.8% eff</td><td>7–8.5 hrs · &gt;85% efficiency</td><td><span class="tag good">Excellent</span></td><td>Watch the right-tail variance — protect weekends from late-night drift</td></tr>
         <tr><td><b>Sleep apnea risk</b></td><td>Unknown</td><td>AHI &lt;5 events/hr</td><td><span class="tag warn">Screen recommended</span></td><td>BMI 26 + weight gain + male age 37 = moderate pretest probability; Withings Sleep Analyzer ($129) or single-night home study via Lofta ($189)</td></tr>
         <tr><td><b>CGM time-in-range</b></td><td>99.9% (70–180)</td><td>&gt;90% AGP standard · &gt;95% elite</td><td><span class="tag good">Elite</span></td><td>Strongest single metabolic signal you have — keep CGM rotation quarterly</td></tr>
         <tr><td><b>Omega-3 index</b></td><td>Not tested</td><td>&gt;8% = optimal (Framingham subgroup)</td><td><span class="tag bad">Test needed</span></td><td>Quest fingerstick $50 · or bundled in Function Health quarterly</td></tr>
-        <tr><td><b>Vitamin D</b></td><td>Not tested</td><td>40–60 ng/mL (Brighton MI = winter deficiency zone)</td><td><span class="tag bad">Test needed</span></td><td>Function Health · 2000 IU baseline supplement Oct–Mar</td></tr>
-        <tr><td><b>Testosterone (total/free)</b></td><td>Not tested</td><td>Total 600–900 ng/dL · free 100–200 pg/mL (M 35–40)</td><td><span class="tag bad">Test needed</span></td><td>Baseline at 37 lets you see decade-over-decade decline; AM draw essential</td></tr>
+        <tr><td><b>Vitamin D</b></td><td><b>23 ng/mL</b> (UCLA Dec 2024)</td><td>40–60 ng/mL (Brighton MI = winter deficiency zone)</td><td><span class="tag warn">Suboptimal</span></td><td>2000–4000 IU daily supplement · retest in 12 wk · already lower than ideal at baseline</td></tr>
+        <tr><td><b>Testosterone</b></td><td><b>808 ng/dL total · 132 pg/mL free</b> (UCLA Dec 2024)</td><td>Total 600–900 ng/dL · free 100–200 pg/mL (M 35–40)</td><td><span class="tag good">Elite</span></td><td>Upper half of range at 37. Re-test annually to track decade slope.</td></tr>
+        <tr><td><b>TSH · Free T3/T4</b></td><td><b>1.7 · 310 pg/dL · 1.6 ng/dL</b> (UCLA Dec 2024)</td><td>TSH 1–2 optimal · clean Ab</td><td><span class="tag good">Elite</span></td><td>Maintain. Sweet spot.</td></tr>
+        <tr><td><b>Kidney (eGFR · creatinine)</b></td><td><b>89 mL/min/1.73m² · 1.1 mg/dL</b> (UCLA Dec 2024)</td><td>&gt;60 normal · &gt;90 ideal</td><td><span class="tag good">Good</span></td><td>Just under ideal · hydration + low NSAID use protects this</td></tr>
+        <tr><td><b>PSA</b></td><td><b>0.51 ng/mL</b> (UCLA Dec 2024)</td><td>&lt;4.0 · baseline at 37 = excellent</td><td><span class="tag good">Elite</span></td><td>Re-test annually 40+ to track slope</td></tr>
+        <tr><td><b>Bone density (Z-score)</b></td><td><b>+0.6 SD (Male)</b> (UCLA Dec 2024)</td><td>&gt;0 = above-average for age</td><td><span class="tag good">Good</span></td><td>Recheck DEXA at age 40 + DEXA can also give visceral fat reading</td></tr>
         <tr><td><b>Methylation/Biological age</b></td><td>Unknown</td><td>Biological &lt; chronological (37) ideally by 3–5 yrs</td><td><span class="tag bad">Test needed</span></td><td>TruDiagnostic TruAge Complete $299 · annual to track delta</td></tr>
         <tr><td><b>Coronary calcium (CAC)</b></td><td>Not done</td><td>0 Agatston · age 40+ standard</td><td><span class="tag muted">Defer to age 40</span></td><td>If ApoB or Lp(a) come back elevated, accelerate to now; $150 self-pay scan</td></tr>
       </tbody>
@@ -306,11 +350,11 @@
     <table>
       <thead><tr><th>#</th><th>Move</th><th>Why it's #1-#5 for you</th><th>Cost / ETA</th></tr></thead>
       <tbody>
-        <tr><td><b>1</b></td><td><b>Function Health annual panel</b></td><td>Single biggest data unlock — gives you ApoB, Lp(a), hs-CRP, HOMA-IR, omega-3, vit D, testosterone, thyroid in one shot. Closes ~10 of the red rows above at once.</td><td>$499 · results in 2 wk</td></tr>
-        <tr><td><b>2</b></td><td><b>Lose 10 lbs (184 → 174)</b></td><td>Clears BMI threshold, likely drops resting BP &amp; HR by themselves, improves HRV. The two yellow flags you have today (BP, RHR) are both weight-coupled.</td><td>Free · 12–16 wk at ~0.6 lb/wk</td></tr>
-        <tr><td><b>3</b></td><td><b>Apple Watch back on wrist (this week)</b></td><td>Unlocks HRV, VO2 max estimate, nocturnal SpO2 trend (apnea screen), continuous RHR. Four longevity markers reactivated at zero cost.</td><td>$0 · live in 14 days</td></tr>
-        <tr><td><b>4</b></td><td><b>Z2 cardio cadence — 180 min/wk</b></td><td>Most direct lever on both your yellow flags (RHR ↓, BP ↓) plus VO2 max ↑. Brighton MI = bike Kensington Metropark in summer, indoor in winter.</td><td>$0 · effect visible 6–8 wk</td></tr>
-        <tr><td><b>5</b></td><td><b>One-time PGx + Lp(a) + TruDiagnostic baseline</b></td><td>Three "do once, know forever" tests. Lp(a) is genetic — answer doesn't change. PGx informs every drug interaction for the rest of your life. TruAge gives a biological-age baseline to track decade-over-decade.</td><td>~$650 combined · all results in 30 days</td></tr>
+        <tr><td><b>1</b></td><td><b>Re-draw HbA1c + simultaneous 14-day CGM (next 90 days)</b></td><td>The only direct conflict in your data — UCLA A1c 5.7% vs CGM TIR 99.9%. Resolving this single discrepancy moves Metabolic +20 pts and either confirms elite status or surfaces a hidden glycemic issue at 37 — both worth knowing now.</td><td>$40 lab + ~$80 CGM · 90 days</td></tr>
+        <tr><td><b>2</b></td><td><b>Lose 10 lbs (184 → 174)</b></td><td>Clears BMI threshold, likely drops resting BP &amp; HR, improves HRV. Both yellow flags (BP, RHR) are weight-coupled.</td><td>Free · 12–16 wk at ~0.6 lb/wk</td></tr>
+        <tr><td><b>3</b></td><td><b>Apple Watch back on wrist (this week)</b></td><td>Unlocks HRV, VO2 max estimate, nocturnal SpO2 trend (apnea screen), continuous RHR. Four longevity markers reactivated at zero cost. Single biggest single-week score lift.</td><td>$0 · live in 14 days</td></tr>
+        <tr><td><b>4</b></td><td><b>Function Health targeted add-on (ApoB + Lp(a) + hs-CRP + omega-3)</b></td><td>UCLA already gave you the standard panel — so you only need the add-on markers, not the full $499 panel. ApoB &amp; Lp(a) are the missing cardio gold standards; hs-CRP + omega-3 close inflammation/nutrition.</td><td>~$200 if standalone · or full Function Health $499</td></tr>
+        <tr><td><b>5</b></td><td><b>One-time PGx + TruDiagnostic methylation age</b></td><td>Two "do once, know forever" tests. PGx informs every drug interaction for the rest of your life. TruAge gives a biological-age baseline to track decade-over-decade.</td><td>~$450 combined · results in 30 days</td></tr>
       </tbody>
     </table>
   </div>
@@ -335,27 +379,107 @@
     <b>You're an ideal candidate.</b> Most patients in the Medesto cohort are managing chronic conditions and start with adherence penalties + medication side effects depressing their score. You start with no Rx burden — your Mental Health, Adherence, and Cardio dimensions can hit 90+ purely on lifestyle + tracking. The score ceiling is genuinely higher for you than for any of the Hilltop patients.
   </div>
 
-  <div class="score-card">
-    <div class="score-big">86-93</div>
-    <div class="score-label">PROJECTED HUMAN SCORE (full Justin Path executed)</div>
-    <div style="margin-top: 8px; color: var(--muted); font-size: 12px;">Data Ensemble target: 22+ of 24 dimensions captured</div>
-  </div>
-
-
-  <h2><span class="num">2.</span>📊 Projected Score Breakdown (when fully on plan)</h2>
-  <div class="card">
-    <div class="score-row"><div class="label">Cardio</div><div class="bar-track"><div class="bar-fill" style="width:88%; background: var(--good);"></div></div><div class="val" style="color:var(--good);">88</div><div class="note">Watch HRV/RHR/ECG · Lp(a)/ApoB · BP cuff · CoQ10/omega-3</div></div>
-    <div class="score-row"><div class="label">Sleep</div><div class="bar-track"><div class="bar-fill" style="width:85%; background: var(--good);"></div></div><div class="val" style="color:var(--good);">85</div><div class="note">Watch + Oura · magnesium PM · winter light box</div></div>
-    <div class="score-row"><div class="label">Metabolic</div><div class="bar-track"><div class="bar-fill" style="width:88%; background: var(--good);"></div></div><div class="val" style="color:var(--good);">88</div><div class="note">Function Health panel · CGM rotation · DEXA visceral fat</div></div>
-    <div class="score-row"><div class="label">Activity</div><div class="bar-track"><div class="bar-fill" style="width:90%; background: var(--good);"></div></div><div class="val" style="color:var(--good);">90</div><div class="note">VO2 max · creatine · 8K+ steps · grip strength</div></div>
-    <div class="score-row"><div class="label">Mental Health</div><div class="bar-track"><div class="bar-fill" style="width:92%; background: var(--good);"></div></div><div class="val" style="color:var(--good);">92</div><div class="note">No Rx · PHQ/GAD normal · purpose/social tracked</div></div>
-    <div class="score-row"><div class="label">Labs / Genomic</div><div class="bar-track"><div class="bar-fill" style="width:95%; background: var(--good);"></div></div><div class="val" style="color:var(--good);">95</div><div class="note">Function Health 100+ markers · PGx · 23andMe · methylation age</div></div>
-    <div class="score-row"><div class="label">Adherence</div><div class="bar-track"><div class="bar-fill" style="width:95%; background: var(--good);"></div></div><div class="val" style="color:var(--good);">95</div><div class="note">Supplement log (no Rx to miss)</div></div>
-    <div class="score-row"><div class="label">Nutrition</div><div class="bar-track"><div class="bar-fill" style="width:82%; background: var(--good);"></div></div><div class="val" style="color:var(--good);">82</div><div class="note">Food log · protein · supplement stack · AUDIT-C tracked</div></div>
+  <div class="score-grid">
+    <div class="score-card current">
+      <div class="score-big">72</div>
+      <div class="score-label">CURRENT LONGEVITY SCORE</div>
+      <div class="score-meta">
+        Computed from <b>real data</b>: Medesto historical (5,249 HR · 548 weight · 485 BP · 3,500 CGM · 60 sleep nights) + UCLA Health labs (Dec 2024).
+      </div>
+      <div class="ensemble-bar"><div class="ensemble-fill" style="width:54%; background: linear-gradient(90deg, #f39c12, #e67e22);"></div></div>
+      <div class="score-meta"><b>Ensemble: 13 / 24 dimensions captured (54%)</b></div>
+    </div>
+    <div class="score-card target">
+      <div class="score-big">86-93</div>
+      <div class="score-label">TARGET LONGEVITY SCORE</div>
+      <div class="score-meta">
+        Reachable with the <b>"Justin Path"</b> — Function Health panel + 10 lb drop + watch back on + PGx/Lp(a)/CGM/DEXA rotation.
+      </div>
+      <div class="ensemble-bar"><div class="ensemble-fill" style="width:92%; background: linear-gradient(90deg, #4976df, #2ecc71);"></div></div>
+      <div class="score-meta"><b>Ensemble target: 22 / 24 dimensions captured (92%)</b></div>
+    </div>
   </div>
 
   <div class="info-callout">
-    <b>Composite: ~90/100.</b> Achievable with consistent execution. The single biggest risk knock-down is sleep discipline (weekend variance, late-night work) — protect that and 90+ is real.
+    <b>Delta: +14 to +21 points</b> between today and the target. None of the gap requires medication or chronic-disease management — it's all <b>data capture + 10 lb drop + four one-time tests</b>. The Ensemble climb (54% → 92%) is what actually pulls the composite from "good" to "elite" — each new captured dimension fills a row instead of penalizing the score for missingness.
+  </div>
+
+
+  <h2><span class="num">2.</span>📊 Score Breakdown — Current vs Target (per dimension)</h2>
+  <p style="color:var(--muted); font-size:13px;">For each of the 8 longevity dimensions: where you are today (orange) vs where the plan takes you (green).</p>
+  <div class="card">
+    <table>
+      <thead><tr><th style="width:130px;">Dimension</th><th>Current</th><th>Target</th><th>What closes the gap</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><b>Cardio</b></td>
+          <td><span class="tag warn">70</span></td>
+          <td><span class="tag good">88</span></td>
+          <td>Lipids elite (LDL 84 · HDL 62 · Trig 41) · BP borderline (avg 129/80 Medesto · 121–134/75–80 UCLA) · clinic RHR 61–65 elite · <b>missing: ApoB, Lp(a), HRV, VO2max</b></td>
+        </tr>
+        <tr>
+          <td><b>Sleep</b></td>
+          <td><span class="tag good">85</span></td>
+          <td><span class="tag good">88</span></td>
+          <td>Already elite (8.2 hr · 95.8% eff). Add apnea screen + protect weekend variance</td>
+        </tr>
+        <tr>
+          <td><b>Metabolic</b></td>
+          <td><span class="tag warn">68</span></td>
+          <td><span class="tag good">88</span></td>
+          <td>CGM TIR 99.9% elite · HOMA-IR 0.67 elite · BUT <b>HbA1c 5.7% (prediabetic range)</b> contradicts CGM — needs retest. Glucose 91, insulin 3 = excellent baseline</td>
+        </tr>
+        <tr>
+          <td><b>Activity</b></td>
+          <td><span class="tag bad">52</span></td>
+          <td><span class="tag good">90</span></td>
+          <td>Watch off-wrist for weeks · VO2max unknown · grip untested · steps HK-inflated. Putting watch back on this week alone moves this 20+ pts in 14 days</td>
+        </tr>
+        <tr>
+          <td><b>Mental Health</b></td>
+          <td><span class="tag warn">75</span></td>
+          <td><span class="tag good">92</span></td>
+          <td>No Rx burden = ceiling intact. Need PHQ-9/GAD-7 baseline · purpose/social capture</td>
+        </tr>
+        <tr>
+          <td><b>Labs / Genomic</b></td>
+          <td><span class="tag warn">74</span></td>
+          <td><span class="tag good">95</span></td>
+          <td>UCLA panel covers ~18 of 24 labs (CBC, CMP, lipids, T, thyroid, vit D, PSA, A1c) · <b>missing: ApoB, Lp(a), hs-CRP, omega-3, PGx, 23andMe, methylation age</b></td>
+        </tr>
+        <tr>
+          <td><b>Adherence</b></td>
+          <td><span class="tag warn">75</span></td>
+          <td><span class="tag good">95</span></td>
+          <td>No daily Rx to miss = ceiling high. Add supplement adherence log (ONCOVITE + planned stack)</td>
+        </tr>
+        <tr>
+          <td><b>Nutrition</b></td>
+          <td><span class="tag warn">72</span></td>
+          <td><span class="tag good">82</span></td>
+          <td>Lipid + Trig 41 + glucose 91 imply healthy diet baseline. Need food log + AUDIT-C + omega-3 index test</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="info-callout">
+    <b>Composite math: current ~72 → target ~86.</b> The 14-point lift comes from three buckets: <b>Activity</b> (+38 from watch back on + VO2max + grip) · <b>Metabolic</b> (+20 from A1c retest + closing ApoB/Lp(a)) · <b>Labs/Genomic</b> (+21 from Function Health + PGx + TruDiagnostic).
+  </div>
+  <h3>📊 Visual breakdown — current (orange) vs target (green) per dimension</h3>
+  <div class="card">
+    <div class="score-row"><div class="label">Cardio</div><div class="bar-track"><div class="bar-fill" style="width:70%; background: var(--warn);"></div></div><div class="val" style="color:var(--warn);">70</div><div class="note">→ 88 with ApoB/Lp(a) + HRV + VO2max</div></div>
+    <div class="score-row"><div class="label">Sleep</div><div class="bar-track"><div class="bar-fill" style="width:85%; background: var(--good);"></div></div><div class="val" style="color:var(--good);">85</div><div class="note">→ 88 already near-elite (8.2 hr · 95.8% eff)</div></div>
+    <div class="score-row"><div class="label">Metabolic</div><div class="bar-track"><div class="bar-fill" style="width:68%; background: var(--warn);"></div></div><div class="val" style="color:var(--warn);">68</div><div class="note">→ 88 once A1c retest + HOMA-IR 0.67 elite</div></div>
+    <div class="score-row"><div class="label">Activity</div><div class="bar-track"><div class="bar-fill" style="width:52%; background: var(--bad);"></div></div><div class="val" style="color:var(--bad);">52</div><div class="note">→ 90 watch back on this week alone +20</div></div>
+    <div class="score-row"><div class="label">Mental Health</div><div class="bar-track"><div class="bar-fill" style="width:75%; background: var(--warn);"></div></div><div class="val" style="color:var(--warn);">75</div><div class="note">→ 92 no Rx burden = ceiling intact</div></div>
+    <div class="score-row"><div class="label">Labs / Genomic</div><div class="bar-track"><div class="bar-fill" style="width:74%; background: var(--warn);"></div></div><div class="val" style="color:var(--warn);">74</div><div class="note">→ 95 UCLA panel covers 18/24; + ApoB + PGx + TruAge</div></div>
+    <div class="score-row"><div class="label">Adherence</div><div class="bar-track"><div class="bar-fill" style="width:75%; background: var(--warn);"></div></div><div class="val" style="color:var(--warn);">75</div><div class="note">→ 95 supplement log only thing missing</div></div>
+    <div class="score-row"><div class="label">Nutrition</div><div class="bar-track"><div class="bar-fill" style="width:72%; background: var(--warn);"></div></div><div class="val" style="color:var(--warn);">72</div><div class="note">→ 82 food log + omega-3 index test</div></div>
+  </div>
+
+  <div class="info-callout">
+    <b>Current composite ~72. Target ~86–93.</b> Achievable with consistent execution. The single biggest risk knock-down is sleep discipline (weekend variance, late-night work) — protect that and 90+ is real.
   </div>
 
 
@@ -363,7 +487,7 @@
   <p style="color:var(--muted); font-size:13px;">Live Superset query run Monday 2026-05-26 morning. Findings + reactivation actions below.</p>
 
   <div class="warn-callout">
-    <b>DB profile is placeholder / test-account data.</b> Your patient record <code>ab0d2eaf-…</code> shows DOB <b>2023-12-18</b> (age 2) and city "<b>Harvard, Massachusetts</b>" — clearly the iOS-testing seed values, NOT your real demographics. Your real profile (Brighton MI · age 37 · DOB 1989-01-09) is what drives the Human Score plan here. Phone (<code>+13392221440</code>), email (<code>gauvin89@gmail.com</code>), timezone (<code>America/Detroit</code>), and account creation (<b>2021-10-11</b>) all match reality — only DOB + city are stub values. Worth updating your patient record in the dashboard so the Medesto AI doesn't misclassify you as a pediatric Massachusetts patient.
+    <b>DB profile is placeholder / test-account data.</b> Your patient record <code>ab0d2eaf-…</code> shows DOB <b>2023-12-18</b> (age 2) and city "<b>Harvard, Massachusetts</b>" — clearly the iOS-testing seed values, NOT your real demographics. Your real profile (Brighton MI · age 37 · DOB 1989-01-09) is what drives the Longevity Score plan here. Phone (<code>+13392221440</code>), email (<code>gauvin89@gmail.com</code>), timezone (<code>America/Detroit</code>), and account creation (<b>2021-10-11</b>) all match reality — only DOB + city are stub values. Worth updating your patient record in the dashboard so the Medesto AI doesn't misclassify you as a pediatric Massachusetts patient.
   </div>
 
   <div class="card">
@@ -384,7 +508,7 @@
         <tr><td><b>CGM (Dexcom)</b></td><td><span class="tag good">3,500 readings Jan–Feb 2026</span></td><td><b>Avg 97 mg/dL · TIR 99.9% · max 189.</b> 14-day rotation excellent metabolic baseline</td></tr>
         <tr><td><b>Inhaler trial (2023)</b></td><td><span class="tag muted">1 reading 2023-02-16</span></td><td>One historical Medesto-Inhale test; peak flow 26 L/min · not active</td></tr>
         <tr><td><b>Adherence log</b></td><td><span class="tag muted">6,582 events (testing data)</span></td><td>Mostly QA/testing regimens — not a measure of your real-life supplement adherence</td></tr>
-        <tr><td><b>Labs</b></td><td><span class="tag bad">No EHR connected</span></td><td>U Michigan / Henry Ford MyChart via Apple Health Records (free), or Function Health annual ($499)</td></tr>
+        <tr><td><b>Labs (EHR)</b></td><td><span class="tag good">UCLA Health connected</span></td><td><b>Dec 18 2024 comprehensive panel via Apple Health Records.</b> Lipids · A1c · T · thyroid · CMP · CBC · vit D · PSA. See Section 4 below for full data + flags</td></tr>
         <tr><td><b>Genomic (PGx, 23andMe)</b></td><td><span class="tag bad">None</span></td><td>Recommend one-time PGx + 23andMe</td></tr>
         <tr><td><b>Body composition (DEXA)</b></td><td><span class="tag bad">None recent</span></td><td>Last body-comp data is 2020 Withings (muscle 60.5kg / fat 14.1kg). Annual DEXA recommended</td></tr>
       </tbody>
@@ -411,7 +535,131 @@
   </div>
 
 
-  <h2><span class="num">4.</span>📱 Devices — What You'd Buy</h2>
+  <h2><span class="num">4.</span>🏥 Clinical Health Record — UCLA Health</h2>
+  <p style="color:var(--muted); font-size:13px;">Pulled from your Apple Health Records (UCLA Health portal). Covers comprehensive Dec 2024 panel + clinic vitals + immunization history. <b>Closes ~10 of the "test needed" rows in your Longevity Markers above.</b></p>
+
+  <h3>📋 Clinical Vitals — UCLA Visits</h3>
+  <div class="card">
+    <table>
+      <thead><tr><th>Date</th><th>BP</th><th>HR</th><th>SpO2</th><th>Weight</th><th>Height</th><th>Temp</th></tr></thead>
+      <tbody>
+        <tr><td><b>Dec 9, 2024</b></td><td>121/80 + 134/75 mmHg</td><td>61 + 65 /min</td><td>99%</td><td>84.8 kg (187 lbs)</td><td>176 cm</td><td>36.1 °C</td></tr>
+        <tr><td><b>Nov 25, 2024</b></td><td>—</td><td>—</td><td>—</td><td>83.9 kg (185 lbs)</td><td>177.8 cm (5'10")</td><td>—</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>🧪 Lab Panel — Dec 18, 2024 (UCLA)</h3>
+  <p style="color:var(--muted); font-size:13px;">Status column: <span class="tag good">elite</span> = top-quartile longevity zone · <span class="tag good">good</span> = clean reference · <span class="tag warn">flag</span> = needs follow-up · <span class="tag bad">missing</span> = not in panel</p>
+
+  <div class="card">
+    <table>
+      <thead><tr><th>Panel</th><th>Marker</th><th>Your value</th><th>Reference / target</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td rowspan="4"><b>Lipids</b></td><td>Total Cholesterol</td><td>154 mg/dL</td><td>&lt;200</td><td><span class="tag good">Good</span></td></tr>
+        <tr><td>HDL</td><td>62 mg/dL</td><td>&gt;40 (M) · &gt;60 protective</td><td><span class="tag good">Elite</span></td></tr>
+        <tr><td>LDL (calc)</td><td>84 mg/dL</td><td>&lt;100 standard · &lt;70 Attia primary prevention</td><td><span class="tag good">Good</span></td></tr>
+        <tr><td>Triglycerides</td><td><b>41 mg/dL</b></td><td>&lt;150 normal · &lt;75 metabolically excellent</td><td><span class="tag good">Elite</span></td></tr>
+        <tr><td rowspan="3"><b>Metabolic</b></td><td>Glucose (fasting)</td><td>91 mg/dL</td><td>65–99</td><td><span class="tag good">Good</span></td></tr>
+        <tr><td>HbA1c</td><td><b>5.7%</b></td><td>&lt;5.7% normal · 5.7–6.4% prediabetic</td><td><span class="tag warn">Border-flag</span></td></tr>
+        <tr><td>Insulin · HOMA-IR (calc)</td><td>3 uU/mL · <b>HOMA-IR 0.67</b></td><td>HOMA-IR &lt;1.5 sensitive</td><td><span class="tag good">Elite</span></td></tr>
+        <tr><td rowspan="4"><b>Hormones</b></td><td>Testosterone (total)</td><td><b>808 ng/dL</b></td><td>300–1080 (mid-upper = optimal at 37)</td><td><span class="tag good">Elite</span></td></tr>
+        <tr><td>Testosterone (free)</td><td>132 pg/mL</td><td>47–244</td><td><span class="tag good">Good</span></td></tr>
+        <tr><td>Testosterone (bioavailable)</td><td>364 ng/dL</td><td>131–682</td><td><span class="tag good">Good</span></td></tr>
+        <tr><td>SHBG · Estradiol</td><td>48.9 nmol/L · 17 pg/mL</td><td>20–76 · normal male</td><td><span class="tag good">Good</span></td></tr>
+        <tr><td rowspan="4"><b>Thyroid</b></td><td>TSH</td><td>1.7 mcIU/mL</td><td>0.3–4.7 · 1–2 optimal</td><td><span class="tag good">Elite</span></td></tr>
+        <tr><td>Free T3 · Free T4</td><td>310 pg/dL · 1.6 ng/dL</td><td>222–383 · 0.8–1.7</td><td><span class="tag good">Good</span></td></tr>
+        <tr><td>TPO Ab</td><td>9 IU/mL</td><td>Negative for autoimmune thyroid</td><td><span class="tag good">Good</span></td></tr>
+        <tr><td>Thyroglobulin · Tg Ab</td><td>6.5 ng/mL · 0.9 IU/mL</td><td>3–40 · negative</td><td><span class="tag good">Good</span></td></tr>
+        <tr><td rowspan="2"><b>Kidney</b></td><td>Creatinine · eGFR</td><td>1.1 mg/dL · 89 mL/min/1.73m²</td><td>0.6–1.3 · &gt;60 normal · &gt;90 ideal</td><td><span class="tag good">Good</span></td></tr>
+        <tr><td>BUN · Anion gap</td><td>14 mg/dL · 11 mmol/L</td><td>7–22 · 8–19</td><td><span class="tag good">Good</span></td></tr>
+        <tr><td rowspan="2"><b>Liver</b></td><td>ALT · AST</td><td>24 · 28 IU/L</td><td>8–70 · 13–62</td><td><span class="tag good">Good</span></td></tr>
+        <tr><td>Alk Phos · Bilirubin · Albumin</td><td>68 IU/L · 0.3 mg/dL · 4.9 g/dL</td><td>Within ranges</td><td><span class="tag good">Good</span></td></tr>
+        <tr><td rowspan="3"><b>CBC</b></td><td>Hgb · Hct</td><td>15.5 g/dL · 48%</td><td>13.5–17.1 · 38.5–52</td><td><span class="tag good">Good</span></td></tr>
+        <tr><td>WBC · Platelets</td><td>5.9 K/uL · 235 K/uL</td><td>Normal ranges</td><td><span class="tag good">Good</span></td></tr>
+        <tr><td>RBC · MCV · MCH</td><td>5.03 M/uL · 95.4 fL · 30.8 pg</td><td>Within ranges</td><td><span class="tag good">Good</span></td></tr>
+        <tr><td><b>Cancer screen</b></td><td>PSA</td><td><b>0.51 ng/mL</b></td><td>&lt;4.0 · baseline at 37 = excellent</td><td><span class="tag good">Elite</span></td></tr>
+        <tr><td><b>Vitamin</b></td><td>25-OH Vitamin D</td><td><b>23 ng/mL</b></td><td>20–50 lab range · 40–60 longevity-optimal</td><td><span class="tag warn">Suboptimal</span></td></tr>
+        <tr><td><b>Growth/Bone</b></td><td>IGF-1 · Bone Z-score (M)</td><td>193 ng/mL · +0.6 SD</td><td>53–331 · &gt;0 above-average for age</td><td><span class="tag good">Good</span></td></tr>
+        <tr><td><b>Infectious</b></td><td>HBs Ag · HCV Ab · HIV-1/2 Ag/Ab</td><td>All nonreactive</td><td>Negative</td><td><span class="tag good">Clear</span></td></tr>
+        <tr><td colspan="2"><b>Still missing from any panel</b></td><td colspan="3"><b>ApoB</b> · <b>Lp(a)</b> (one-time genetic) · <b>hs-CRP</b> · <b>Omega-3 index</b> · <b>Homocysteine</b> · <b>PGx pharmacogenomic</b> · <b>Methylation/biological age</b></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>🚩 Three flags from the UCLA panel</h3>
+  <div class="card">
+    <table>
+      <thead><tr><th>Flag</th><th>Value</th><th>Why it matters</th><th>Action</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><b>HbA1c 5.7%</b><br><span class="tag warn">Prediabetic border</span></td>
+          <td>5.7% sits at the threshold (5.7–6.4% = prediabetes per ADA)</td>
+          <td><b>This contradicts your CGM data</b> (TIR 99.9%, avg 97 → estimated A1c ~5.0%). Either the lab A1c was a one-off, CGM missed nocturnal/postprandial spikes, or red-cell turnover is elevating A1c (hemoglobin 15.5 + Hct 48 don't suggest anemia, so unlikely). Lab A1c is the gold standard — needs a retest.</td>
+          <td>Re-draw A1c in 3 months · run another 14-day CGM wear in parallel to confirm</td>
+        </tr>
+        <tr>
+          <td><b>Vitamin D 23 ng/mL</b><br><span class="tag warn">Lower bound</span></td>
+          <td>Just barely above deficiency cutoff (20). Optimal longevity range is 40–60.</td>
+          <td>Brighton MI latitude (42.5°N) = essentially zero UV-B Oct–Mar. Low vit D linked to bone density loss, immune dysfunction, mood, all-cause mortality.</td>
+          <td>2000–4000 IU daily · retest in 12 wk · target 40+ ng/mL</td>
+        </tr>
+        <tr>
+          <td><b>BP elevated</b><br><span class="tag warn">Stage 1 borderline</span></td>
+          <td>UCLA Dec 9 readings: 121/80 + 134/75. Medesto lifetime avg 129/80.</td>
+          <td>Two-reading variance same visit = some white-coat plus a real elevation signal. Concordant with 4 years of home cuff data.</td>
+          <td>Magnesium 400 mg PM + omega-3 2 g + 10 lb drop · re-cuff weekly · target &lt;120/80</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>💪 Six wins UCLA labs reveal</h3>
+  <div class="card">
+    <table>
+      <thead><tr><th>Win</th><th>Your number</th><th>What it means for longevity</th></tr></thead>
+      <tbody>
+        <tr><td><b>Trig 41 + HDL 62 + LDL 84</b></td><td>Trig:HDL ratio 0.66</td><td>Best single proxy for metabolic-cardio health. &lt;1.0 is elite. Yours is well below — implies low atherogenic small-dense LDL particle count even without ApoB tested.</td></tr>
+        <tr><td><b>Testosterone 808 ng/dL</b></td><td>Upper half of 300–1080 range</td><td>Excellent baseline at 37. T tends to drop 1–2%/yr after 30 — you have headroom. Re-test annually to track decade slope.</td></tr>
+        <tr><td><b>Fasting insulin 3 + HOMA-IR 0.67</b></td><td>HOMA-IR &lt;1.5 = sensitive</td><td>Insulin resistance is the upstream driver of T2D, NAFLD, dementia, cardio disease. You're in the top-decile sensitive zone. Pairs with your CGM TIR.</td></tr>
+        <tr><td><b>TSH 1.7 + clean thyroid Ab</b></td><td>TSH 1–2 = longevity-optimal · no autoimmune signal</td><td>Thyroid is downstream of half the longevity markers (metabolism, cognition, energy). You're in the sweet spot.</td></tr>
+        <tr><td><b>eGFR 89 + Creat 1.1</b></td><td>Just under 90 = kidney function elite for age</td><td>Kidney function is one of the strongest mortality predictors. Maintaining &gt;60 protects every other system. You're nearly at the &gt;90 ideal.</td></tr>
+        <tr><td><b>PSA 0.51</b></td><td>1/8th of 4.0 upper limit</td><td>Excellent baseline at 37. Annual track lets you spot any inflection 5–10 yrs before the standard age-50 screening would.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>🩺 Provider history (UCLA Health)</h3>
+  <div class="card">
+    <table>
+      <thead><tr><th>Date</th><th>Provider</th><th>Type</th></tr></thead>
+      <tbody>
+        <tr><td>Mar 5–7, 2025</td><td>Rajiv Jayadevan, MD + Nurse Bryan G, LVN</td><td>Consult + nursing note</td></tr>
+        <tr><td>Dec 18–20, 2024</td><td>Brian P. Donohoe, MD + Nurse Sarah H, LVN</td><td>Progress note + nursing</td></tr>
+        <tr><td>Dec 9, 2024</td><td>Tannaz Zahirpour, DO</td><td>Progress note</td></tr>
+        <tr><td>Nov 22–25, 2024</td><td>Brian P. Donohoe, MD</td><td>Consult + patient instructions</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>💉 Immunization history</h3>
+  <div class="card">
+    <table>
+      <thead><tr><th>Status</th><th>Vaccines on record</th></tr></thead>
+      <tbody>
+        <tr><td><span class="tag good">Up-to-date adult</span></td><td><b>Td booster Oct 2021</b> (10-yr cadence — next 2031). H1N1 + influenza Jan 2010. Tdap Oct 2006. MCV4 Jun 2007.</td></tr>
+        <tr><td><span class="tag good">Complete childhood</span></td><td>Hep B (3 doses 1996), DTaP (5 doses 1989–94), polio (4 doses 1989–94), MMR (3 doses 1990–99), Hib (2 doses 1990).</td></tr>
+        <tr><td><span class="tag muted">Consider</span></td><td>Annual flu shot · COVID booster · Shingrix (eligible 50+) · HPV if not given (catch-up window through 45)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="info-callout">
+    <b>Bottom line — UCLA labs upgrade your Current Longevity Score from ~65 to 72.</b> Eight of the previously-red "test needed" rows are now green (lipids, A1c, T, thyroid, kidney, liver, CBC, vit D, PSA). The two yellow flags (A1c retest + vit D supplementation) are cheap to close. Only the cutting-edge longevity markers (ApoB, Lp(a), hs-CRP, PGx, methylation age) still need a Function Health panel + targeted add-ons to push you toward the 85+ target.
+  </div>
+
+
+  <h2><span class="num">5.</span>📱 Devices — What You'd Buy</h2>
   <div class="card">
     <table>
       <thead><tr><th>Device</th><th>What it captures</th><th>Cost</th><th>Already have?</th></tr></thead>
@@ -428,7 +676,7 @@
   </div>
 
 
-  <h2><span class="num">5.</span>🧬 One-Time Tests — Pay Once, Lifetime Value</h2>
+  <h2><span class="num">6.</span>🧬 One-Time Tests — Pay Once, Lifetime Value</h2>
   <div class="card">
     <table>
       <thead><tr><th>Test</th><th>Why</th><th>Vendor</th><th>Cost</th></tr></thead>
@@ -445,7 +693,7 @@
   </div>
 
 
-  <h2><span class="num">6.</span>📅 Annual Tests &amp; Screenings</h2>
+  <h2><span class="num">7.</span>📅 Annual Tests &amp; Screenings</h2>
   <div class="card">
     <table>
       <thead><tr><th>Test</th><th>Why</th><th>Vendor</th><th>Cost</th></tr></thead>
@@ -478,7 +726,7 @@
   </div>
 
 
-  <h2><span class="num">7.</span>💊 Your Supplement Stack</h2>
+  <h2><span class="num">8.</span>💊 Your Supplement Stack</h2>
   <div class="card">
     <table>
       <thead><tr><th>Supplement</th><th>Dose</th><th>Why</th><th>Brand</th><th>Annual</th></tr></thead>
@@ -496,7 +744,7 @@
   </div>
 
 
-  <h2><span class="num">8.</span>🔄 Continuous Capture (no ongoing cost beyond above)</h2>
+  <h2><span class="num">9.</span>🔄 Continuous Capture (no ongoing cost beyond above)</h2>
   <div class="card">
     <table>
       <thead><tr><th>Cadence</th><th>What</th><th>Source</th></tr></thead>
@@ -518,7 +766,7 @@
   </div>
 
 
-  <h2><span class="num">9.</span>💰 Year 1 vs Year 2+ Total Cost</h2>
+  <h2><span class="num">10.</span>💰 Year 1 vs Year 2+ Total Cost</h2>
   <div class="stat-grid">
     <div class="stat"><div class="v" style="color:var(--good);">$7-9K</div><div class="k">Year 1 (setup + all tests)</div></div>
     <div class="stat"><div class="v" style="color:var(--good);">$5-7K</div><div class="k">Year 2+ recurring</div></div>
@@ -542,7 +790,7 @@
   </div>
 
 
-  <h2><span class="num">10.</span>📆 90-Day Rollout Phases</h2>
+  <h2><span class="num">11.</span>📆 90-Day Rollout Phases</h2>
 
   <div class="phase-box">
     <h4>🚀 Phase 1 — Month 1 (~$1,500): Baseline insight</h4>
@@ -583,7 +831,7 @@
   </div>
 
 
-  <h2><span class="num">11.</span>🚨 What Could Knock You Below 85</h2>
+  <h2><span class="num">12.</span>🚨 What Could Knock You Below 85</h2>
   <div class="card">
     <table>
       <thead><tr><th>Risk</th><th>Why it matters</th><th>Prevention</th></tr></thead>
@@ -600,12 +848,12 @@
   </div>
 
 
-  <h2><span class="num">12.</span>🧠 Side-by-Side: You vs Hilltop Cohort</h2>
+  <h2><span class="num">13.</span>🧠 Side-by-Side: You vs Hilltop Cohort</h2>
   <div class="card">
     <table>
       <thead><tr><th>Metric</th><th>You (Justin Path)</th><th>Hilltop avg</th><th>Why the gap</th></tr></thead>
       <tbody>
-        <tr><td><b>Composite Human Score</b></td><td>86-93</td><td>41</td><td>No Rx burden + active wearable + planned tests</td></tr>
+        <tr><td><b>Composite Longevity Score</b></td><td>86-93</td><td>41</td><td>No Rx burden + active wearable + planned tests</td></tr>
         <tr><td><b>Adherence dimension</b></td><td>95</td><td>33</td><td>Supplements vs Rx; less downside risk</td></tr>
         <tr><td><b>Mental Health dimension</b></td><td>92</td><td>38</td><td>No active depression dx; full social/purpose tracked</td></tr>
         <tr><td><b>Data Ensemble</b></td><td>22/24 dimensions</td><td>5/24</td><td>You complete Tier 3-5 (Labs, Continuous, Genomic, Geo)</td></tr>
@@ -615,7 +863,7 @@
   </div>
 
 
-  <h2><span class="num">13.</span>📝 To-Do List (Action Items)</h2>
+  <h2><span class="num">14.</span>📝 To-Do List (Action Items)</h2>
   <div class="card">
     <p style="color:var(--muted); font-size:13px;">Check items off as you complete them — selections save locally on this device.</p>
     <table>
@@ -653,12 +901,12 @@
   </div>
 
 
-  <h2><span class="num">14.</span>🔮 Next Up — Once Superset Recovers</h2>
+  <h2><span class="num">15.</span>🔮 Next Up — Once Superset Recovers</h2>
   <div class="info-callout">
     <b>When the production DB is back, I'll auto-populate:</b>
     <ul>
       <li>Your actual lifetime steps, sleep, HR, SpO2 from Medesto</li>
-      <li>Your current Human Score (vs the projected 86-93)</li>
+      <li>Your current Longevity Score (vs the projected 86-93)</li>
       <li>Day-by-day daily activity log (same format as Patient R)</li>
       <li>HR by hour pattern (would show your morning sympathetic load)</li>
       <li>Sleep quality trend</li>
@@ -668,7 +916,7 @@
   </div>
 
 
-  <h2><span class="num">15.</span>🔌 How the Data Actually Gets Into Medesto</h2>
+  <h2><span class="num">16.</span>🔌 How the Data Actually Gets Into Medesto</h2>
   <p>For every signal in the plan above, there's a path it takes from the device or lab into Medesto's database. There are <b>5 paths</b>, each with different engineering cost and patient friction. The recommended vendor mix is chosen partly because their data flows through the cheapest paths.</p>
 
   <h3>The 5 ingestion paths</h3>
@@ -728,7 +976,7 @@
   </div>
 
   <div class="warn-callout">
-    <b>Manual entry caveat:</b> AI extraction is ~95% accurate for standard lab PDFs but drops for handwritten notes, multi-page reports, and non-standard formats. The "Confirm" step is non-negotiable — the patient (or staff) must accept each extracted value before it flows into the Human Score. Otherwise score quality degrades from one bad scan.
+    <b>Manual entry caveat:</b> AI extraction is ~95% accurate for standard lab PDFs but drops for handwritten notes, multi-page reports, and non-standard formats. The "Confirm" step is non-negotiable — the patient (or staff) must accept each extracted value before it flows into the Longevity Score. Otherwise score quality degrades from one bad scan.
   </div>
 
   <h3>Phased build roadmap (engineering time estimate)</h3>
@@ -750,10 +998,10 @@
     </table>
   </div>
 
-  <h3>What this unlocks for the Human Score</h3>
+  <h3>What this unlocks for the Longevity Score</h3>
   <div class="card">
     <table>
-      <thead><tr><th>Phase complete</th><th>Score dimensions populated (target)</th><th>Typical Human Score lift</th></tr></thead>
+      <thead><tr><th>Phase complete</th><th>Score dimensions populated (target)</th><th>Typical Longevity Score lift</th></tr></thead>
       <tbody>
         <tr><td>Today (Path A only)</td><td>4-5 of 24 (passive sensors + adherence + climate)</td><td>Baseline ~35-45</td></tr>
         <tr><td>+ Phase 1 (full HealthKit)</td><td>7-8 of 24</td><td>+5-8 points</td></tr>
@@ -766,7 +1014,7 @@
   </div>
 
   <div class="info-callout">
-    <b>Bottom line for "Justin Path":</b> with all 9 phases shipped, a fully-engaged patient like you can hit a 90+ Human Score with high data confidence. Without Phases 3 + 8, no patient ever gets to populate the Labs/Clinical/Genomic tier — and that's worth roughly 25 points of composite score.
+    <b>Bottom line for "Justin Path":</b> with all 9 phases shipped, a fully-engaged patient like you can hit a 90+ Longevity Score with high data confidence. Without Phases 3 + 8, no patient ever gets to populate the Labs/Clinical/Genomic tier — and that's worth roughly 25 points of composite score.
   </div>
 
 
@@ -785,7 +1033,7 @@
 </div>
 
 <footer>
-  Generated 2026-05-24 · Justin Gauvin personalized Human Score plan · Cost roadmap to 85+ composite · Pulled from Medesto database concept · Live data integration pending Superset recovery
+  Updated 2026-05-26 · Justin Gauvin personalized Longevity Score plan · Current 72 → Target 85+ · Pulled from Medesto database + UCLA Health Apple Health Records (Dec 2024 lab panel + Nov–Dec 2024 vitals + immunization history)
 </footer>
 
 </body>
