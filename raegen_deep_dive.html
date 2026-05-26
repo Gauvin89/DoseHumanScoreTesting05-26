@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Patient R — Anonymized Human Score Demo</title>
+<title>Patient R — Anonymized Longevity Score Demo</title>
 <style>
   :root {
     --bg: #0b1020;
@@ -230,7 +230,7 @@
 
 <header>
   <div class="container" style="padding: 0;">
-    <h1>🧬 Patient R — Anonymized Human Score Demo</h1>
+    <h1>🧬 Patient R — Anonymized Longevity Score Demo</h1>
     <div class="meta">24F · Pittsburgh, PA 15214 · TR-Depression Regimen · Anonymized demo · 2026-05-24</div>
   </div>
 </header>
@@ -423,14 +423,14 @@
   </div>
 
 
-  <h2><span class="num">5.</span>🎯 Patient R's Human Score — Upgraded Multi-Tier Model</h2>
+  <h2><span class="num">5.</span>🎯 Patient R's Longevity Score — Upgraded Multi-Tier Model</h2>
   <p style="color:var(--muted);">
     Original DoctorBodyguard model: <i>0–100 composite of 8 dimensions.</i> Upgrading to a <b>7-tier / 24-dimension model</b> that adds Labs, EHR integration, PGx, CGM, polygenic risk, continuous biomarkers, and <b>environmental/geographic health signals (climate + air quality + sunlight + local disease prevalence)</b>. Each tier contributes a weighted slice to the composite. Coverage gaps make the score's <i>predictive confidence</i> lower until those dimensions come online.
   </p>
 
   <div class="score-card">
     <div class="score-big">44</div>
-    <div class="score-label">HUMAN SCORE — composite of 5 measured dimensions</div>
+    <div class="score-label">LONGEVITY SCORE — composite of 5 measured dimensions</div>
     <div style="margin-top: 8px; color: var(--muted); font-size: 12px;">DATA ENSEMBLE: 5 of 18 dimensions captured (28%) · Predictive confidence: <b style="color:var(--warn);">LOW-MEDIUM</b></div>
   </div>
 
@@ -523,7 +523,7 @@
   </div>
 
 
-  <h2><span class="num">6.</span>🤖 AI Predictive Recommendations from Human Score</h2>
+  <h2><span class="num">6.</span>🤖 AI Predictive Recommendations from Longevity Score</h2>
   <p style="color:var(--muted);">Forecasted outcomes at her current trajectory (no intervention), and the ranked interventions most likely to improve her score over the next 90 days.</p>
 
   <h3>Forecast (if no intervention)</h3>
@@ -533,7 +533,7 @@
       <tbody>
         <tr><td><b>30 days</b></td><td>Adherence drops below 30%; BP likely stays at 132+/83+ unchecked; sleep apnea symptoms worsen if untreated; SSRI response plateaus</td><td>Medium</td></tr>
         <tr><td><b>60 days</b></td><td>Mental Health score regresses to ~30; potential relapse of depressive/anxiety symptoms; prescriber may need to escalate dose or add 3rd agent; cardiovascular risk creep</td><td>Medium-Low</td></tr>
-        <tr><td><b>90 days</b></td><td>Risk of clinical treatment-resistance escalation; possible bupropion-induced hypertension requiring antihypertensive; sleep apnea diagnosis likely if referred; Human Score could fall to mid-30s</td><td>Low (long horizon)</td></tr>
+        <tr><td><b>90 days</b></td><td>Risk of clinical treatment-resistance escalation; possible bupropion-induced hypertension requiring antihypertensive; sleep apnea diagnosis likely if referred; Longevity Score could fall to mid-30s</td><td>Low (long horizon)</td></tr>
       </tbody>
     </table>
   </div>
@@ -546,7 +546,7 @@
     <div class="stat"><div class="v" style="color:var(--warn);">MODERATE</div><div class="k">Med discontinuation risk (180d)</div></div>
   </div>
 
-  <h3>Ranked interventions (by expected Human Score lift)</h3>
+  <h3>Ranked interventions (by expected Longevity Score lift)</h3>
   <div class="card">
     <table>
       <thead><tr><th>#</th><th>Intervention</th><th>Expected lift</th><th>Effort</th><th>Time horizon</th></tr></thead>
@@ -662,14 +662,14 @@
     <li><b>[Adherence pattern]</b> — 33% lifetime adherence (15/46) with the dispenser actively engaged (pod 3702 last used 2026-05-21), but <b>70% of doses are 1-12 hours late</b> — schedule has been tuned thoughtfully (9 → 7:45 → 7:30 AM by Clinical staff member) but adherence has not converted, suggesting the bottleneck is not schedule but <b>morning shift workload colliding with the dose window</b>.</li>
     <li><b>[Lifestyle & capability]</b> — Apple Watch + Oura data show ~5 h average sleep with 4 nights under 4 h in the last 16 days, ~5,700 daily steps (below 7,500 cohort norm), and a <b>striking 6-10 AM HR elevation to 122-130 bpm with high variance (SD 29-39)</b> consistent with <b>chronic morning sympathetic activation during her pharmacist shifts</b>, not workout intensity.</li>
     <li><b>[Hidden findings worth surfacing]</b> — SpO2 readings ≤92% on multiple recent days strongly suggest <b>undiagnosed sleep apnea or chronic respiratory issue</b> — paired with her ~5 h sleep average, this is the most actionable finding in her data and could explain her depression resistance + adherence failure (poor sleep → poor cognition → late doses).</li>
-    <li><b>[Data completeness]</b> — Of 8 Human Score dimensions, we have data for 5 (Cardio, Sleep, Activity, Mental Health, Adherence) and <b>zero data for 3 (Metabolic, Labs, Nutrition)</b>; biggest unlock is <b>adding Apple Health Clinical Records (HKClinicalType) to the iOS sync</b> — would pull UPMC lab/vital/allergy data directly into Medesto if she has MyChart linked.</li>
+    <li><b>[Data completeness]</b> — Of 8 Longevity Score dimensions, we have data for 5 (Cardio, Sleep, Activity, Mental Health, Adherence) and <b>zero data for 3 (Metabolic, Labs, Nutrition)</b>; biggest unlock is <b>adding Apple Health Clinical Records (HKClinicalType) to the iOS sync</b> — would pull UPMC lab/vital/allergy data directly into Medesto if she has MyChart linked.</li>
   </ul>
 
 
-  <h2><span class="num">10.</span>🎯 Human Score Visual</h2>
+  <h2><span class="num">10.</span>🎯 Longevity Score Visual</h2>
   <div class="card">
     <pre style="font-family: 'Courier New', monospace; color: var(--txt); margin: 0; line-height: 1.4; font-size: 13px; overflow-x: auto;">
-                    PATIENT R — HUMAN SCORE
+                    PATIENT R — LONGEVITY SCORE
                     ┌──────────────────────────┐
                     │          44              │
                     │       /100               │
@@ -693,7 +693,7 @@
 
   <h2><span class="num">11.</span>📋 Patient Health Data Acquisition Checklist</h2>
   <p>
-    Everything you'd add to a patient's Human Score, consolidated under the 8 master categories.
+    Everything you'd add to a patient's Longevity Score, consolidated under the 8 master categories.
     <b>90 sub-signals</b> total. Patient sees 8; the care team and AI work with all 90.
     Vendors + costs + the clinical reason for each are below.
     Check the boxes to track patient status — selections persist on this device.
@@ -710,7 +710,7 @@
   <p style="color:var(--muted); font-size:13px;">Once paired, these wearables push data automatically. No patient action needed beyond keeping the device worn and charged.</p>
   <div class="card">
     <table>
-      <thead><tr><th style="width:32px;">✓</th><th>Source</th><th>What it captures</th><th>Maps to Human Score</th></tr></thead>
+      <thead><tr><th style="width:32px;">✓</th><th>Source</th><th>What it captures</th><th>Maps to Longevity Score</th></tr></thead>
       <tbody>
         <tr><td><input type="checkbox" data-checklist="passive-applewatch"></td><td><b>Apple Watch</b></td><td>Steps · active energy · stand hours · HR · HRV · resting HR · ECG · AFib monitoring · sleep stages (REM/deep/core/awake) · SpO2 overnight · VO2 max · walking gait · mindful minutes · time in daylight · audio exposure · fall detection</td><td>Cardio · Sleep · Activity · Mental Health</td></tr>
         <tr><td><input type="checkbox" data-checklist="passive-oura"></td><td><b>Oura Ring</b></td><td>Sleep architecture · HRV · body temperature trend · readiness score · cycle tracking</td><td>Sleep · Cardio · Mental Health</td></tr>
@@ -1029,7 +1029,7 @@
 </div>
 
 <footer>
-  Generated 2026-05-24 · Anonymized demo · Patient identifiers redacted · Modeled on DoctorBodyguard Human Score concept
+  Generated 2026-05-24 · Anonymized demo · Patient identifiers redacted · Modeled on DoctorBodyguard Longevity Score concept
 </footer>
 
 </body>

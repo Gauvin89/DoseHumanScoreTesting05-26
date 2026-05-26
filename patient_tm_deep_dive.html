@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Patient TM — Anonymized Human Score Demo</title>
+<title>Patient TM — Anonymized Longevity Score Demo</title>
 <style>
   :root {
     --bg: #0b1020;
@@ -82,7 +82,7 @@
 
 <header>
   <div class="container" style="padding: 0;">
-    <h1>🧬 Patient TM — Anonymized Human Score Demo</h1>
+    <h1>🧬 Patient TM — Anonymized Longevity Score Demo</h1>
     <div class="meta">55 y/o male · Michigan · Long-term Medesto research participant (since 2021) · Anonymized demo · 2026-05-26</div>
   </div>
 </header>
@@ -182,12 +182,12 @@
   </div>
 
 
-  <h2><span class="num">6.</span>🎯 Patient TM's Human Score (Multi-Tier Model)</h2>
+  <h2><span class="num">6.</span>🎯 Patient TM's Longevity Score (Multi-Tier Model)</h2>
   <p style="color:var(--muted);">Same 7-tier / 24-dimension framework applied to Raegen, now applied here. Patient TM's profile is fundamentally different: rich BP/weight history but no HealthKit / no real prescription regimen / no recent vitals.</p>
 
   <div class="score-card">
     <div class="score-big">42</div>
-    <div class="score-label">HUMAN SCORE — composite of 5 measurable dimensions</div>
+    <div class="score-label">LONGEVITY SCORE — composite of 5 measurable dimensions</div>
     <div style="margin-top: 8px; color: var(--muted); font-size: 12px;">DATA ENSEMBLE: 5 of 24 dimensions populated (21%) · Predictive confidence: <b style="color:var(--bad);">LOW</b></div>
   </div>
 
@@ -262,7 +262,7 @@
     <div class="stat"><div class="v" style="color:var(--muted);">UNKNOWN</div><div class="k">Mental Health (no data)</div></div>
   </div>
 
-  <h3>Ranked interventions (by expected Human Score lift)</h3>
+  <h3>Ranked interventions (by expected Longevity Score lift)</h3>
   <div class="card">
     <table>
       <thead><tr><th>#</th><th>Intervention</th><th>Expected lift</th><th>Effort</th></tr></thead>
@@ -289,7 +289,7 @@
     <li><b>[Adherence pattern]</b> — 5,442 lifetime dispense events with 30.6% taken-rate (1,664 in-range/extra), but vast majority of events tie to internal study cycles (TM EVT-1...8, PVT-1, JOA Demo) without real prescriptions attached — true clinical adherence cannot be derived from this aggregate and must be measured against a specific active medication if one is being titrated.</li>
     <li><b>[Lifestyle &amp; capability]</b> — Zero HealthKit data (no Apple Watch / no steps / no sleep / no HRV) limits passive monitoring to vitals captured during dispenser cup events; weight tracking is rich (736 readings) and stable at ~150-156 lbs across 2024, but ended in May 2024 with no recent readings.</li>
     <li><b>[Hidden findings worth surfacing]</b> — Oxygen saturation tracking went silent in April 2023 (39 lifetime readings, last value 98.9%), and HR readings have a strikingly low lifetime average of 58.9 bpm — both signals warrant context: either device sampling bias toward rest moments, athletic baseline, or measurement artifact; <b>worth a single in-clinic confirmation</b>.</li>
-    <li><b>[Data completeness]</b> — Of 24 Human Score sub-signal slots, only 5 are populated (Office Vitals, Med History, Body Comp, Adherence, App Engagement) — connecting an Apple Watch (Tier 1 + Sleep + Activity + HRV) and Apple Health Records (Tier 3 Labs + Diagnoses) would more than double his data ensemble in one weekend.</li>
+    <li><b>[Data completeness]</b> — Of 24 Longevity Score sub-signal slots, only 5 are populated (Office Vitals, Med History, Body Comp, Adherence, App Engagement) — connecting an Apple Watch (Tier 1 + Sleep + Activity + HRV) and Apple Health Records (Tier 3 Labs + Diagnoses) would more than double his data ensemble in one weekend.</li>
   </ul>
 
 
@@ -306,7 +306,7 @@
         <tr><td><b>Lifetime adherence</b></td><td>30.6% (study artifact)</td><td>33% (real Rx)</td></tr>
         <tr><td><b>Weight tracking</b></td><td>736 readings 2020-2024 · stable ~155 lbs</td><td>None</td></tr>
         <tr><td><b>Sleep data</b></td><td>None</td><td>Erratic ~5 h avg</td></tr>
-        <tr><td><b>Human Score</b></td><td>42 / 100 (5/24 dim)</td><td>44 / 100 (5/24 dim)</td></tr>
+        <tr><td><b>Longevity Score</b></td><td>42 / 100 (5/24 dim)</td><td>44 / 100 (5/24 dim)</td></tr>
         <tr><td><b>Top clinical priority</b></td><td>Confirm BP / start antihypertensive evaluation</td><td>Sleep apnea screen + SSRI re-init protocol</td></tr>
         <tr><td><b>Top engineering unlock</b></td><td>Apple Watch + HealthKit pairing</td><td>HKClinicalType + HRV sync</td></tr>
       </tbody>
@@ -314,7 +314,7 @@
   </div>
 
   <div class="info-callout">
-    <b>Despite similar Human Scores</b>, these patients tell very different stories. Patient TM is a long-tenured engaged user with rich vitals tracking but a single critical signal (Stage 2 BP) sitting unaddressed for 9 months. Patient R is a newer user with chronic mental-health treatment and high-frequency monitoring but unresolved sleep architecture issues. <b>Both need outreach — but the outreach scripts and clinical actions are entirely different.</b>
+    <b>Despite similar Longevity Scores</b>, these patients tell very different stories. Patient TM is a long-tenured engaged user with rich vitals tracking but a single critical signal (Stage 2 BP) sitting unaddressed for 9 months. Patient R is a newer user with chronic mental-health treatment and high-frequency monitoring but unresolved sleep architecture issues. <b>Both need outreach — but the outreach scripts and clinical actions are entirely different.</b>
   </div>
 
 
@@ -338,7 +338,7 @@
   <h2><span class="num">11.</span>🔧 Data Quality Caveats Specific to Patient TM</h2>
   <div class="card">
     <ul>
-      <li><b>Study-regimen contamination:</b> the 30.6% lifetime adherence is artificially low because most events are internal evaluation cycles without real prescriptions. <b>The Human Score's Adherence dimension is therefore misleading for him</b> and should be either excluded or computed only against a specific named "production" regimen if one exists. Tag <code>regimens.is_test = TRUE</code> on study cycles is a useful schema addition.</li>
+      <li><b>Study-regimen contamination:</b> the 30.6% lifetime adherence is artificially low because most events are internal evaluation cycles without real prescriptions. <b>The Longevity Score's Adherence dimension is therefore misleading for him</b> and should be either excluded or computed only against a specific named "production" regimen if one exists. Tag <code>regimens.is_test = TRUE</code> on study cycles is a useful schema addition.</li>
       <li><b>Single-point BP alarm:</b> the Aug 2025 reading of 157/100 is one data point. Without a 3-day average, can't distinguish acute "white-coat" / situational spike vs sustained Stage 2 HTN. Action item is to confirm via home cuff before any clinical conclusion.</li>
       <li><b>Lifetime HR avg 58.9</b> is suspect — could be an athletic baseline OR a sample-bias artifact (BP cuff also captures HR and most readings happened at moments of rest/calm). Should be cross-validated with continuous wearable data.</li>
       <li><b>Weight tracking ended May 2024</b> — without a recent weight, BMI and metabolic-risk modeling are stale. Recommend smart-scale ship to restart trend.</li>
@@ -349,7 +349,7 @@
 </div>
 
 <footer>
-  Generated 2026-05-26 · Patient TM anonymized demo · Identifiers redacted per HIPAA Safe Harbor · Modeled on DoctorBodyguard Human Score concept · Same template as Patient R deep dive, adapted for a research/test-user data profile
+  Generated 2026-05-26 · Patient TM anonymized demo · Identifiers redacted per HIPAA Safe Harbor · Modeled on DoctorBodyguard Longevity Score concept · Same template as Patient R deep dive, adapted for a research/test-user data profile
 </footer>
 
 </body>
