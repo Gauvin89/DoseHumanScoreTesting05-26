@@ -248,6 +248,28 @@
     </table>
   </div>
 
+  <h3>📐 Vitals Snapshot — from Medesto historical data</h3>
+  <div class="card">
+    <table>
+      <thead><tr><th>Metric</th><th>Latest</th><th>Trend / Range</th><th>Source</th></tr></thead>
+      <tbody>
+        <tr><td><b>Weight (current)</b></td><td><b>184.3 lbs</b> (2026-03-13)</td><td>Stable 183–188 lbs last 6 mo · gained ~7 lbs over 4 yrs (~177 → ~185)</td><td>Withings Body Pro scale (548 readings since 2022-04-23)</td></tr>
+        <tr><td><b>Height</b></td><td><span class="tag warn">Needs confirmation</span></td><td>DB value (305) is junk seed data. <b>Please confirm your actual height</b> so BMI locks in.</td><td>—</td></tr>
+        <tr><td><b>BMI (provisional)</b></td><td><b>~26.4</b> @ 5'10" · <b>~25.0</b> @ 6'0"</td><td>At 184 lbs — borderline normal/overweight depending on actual height. Recompute once height confirmed.</td><td>Calculated</td></tr>
+        <tr><td><b>Blood Pressure</b></td><td><b>126/75</b> (2025-10-22) · HR 75</td><td>Last 5 readings 2024–25: 115/72 → 131/79 → 126/75 = <b>Elevated / Stage 1 borderline</b>. Lifetime avg 129/80.</td><td>Withings BPM Connect Pro + Smart BP cuff (485 readings since 2020)</td></tr>
+        <tr><td><b>Resting HR</b></td><td><b>~72 bpm</b> lifetime avg</td><td>Range 41–155 across activity · Apple Watch recording active</td><td>5,249 HR readings · Apple Watch (last 2026-04-16)</td></tr>
+        <tr><td><b>SpO2</b></td><td><b>96–97%</b> recent</td><td>1,283 readings since 2023 · normal range</td><td>Apple Watch + SMC-OX pulse-ox</td></tr>
+        <tr><td><b>CGM (Dexcom)</b></td><td><b>97 mg/dL avg</b> (Jan–Feb 2026)</td><td>TIR 99.9% (70–180) · max 189 · SD 15.7 · <b>excellent glycemic control</b></td><td>3,500 CGM readings (2-week wear)</td></tr>
+        <tr><td><b>Sleep</b></td><td><b>~8.2 hrs avg</b> · 95.8% efficiency</td><td>60 nights tracked Jan–Apr 2026 (gaps when watch off)</td><td>Apple Watch sleep</td></tr>
+        <tr><td><b>Body comp (2020)</b></td><td>Muscle 60.5 kg · Fat 14.1 kg · Bone 3.2 kg</td><td>Old snapshot — needs refresh w/ new smart scale (Withings Body Scan or DEXA)</td><td>Withings Body+ Jul–Aug 2020</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="info-callout">
+    <b>Quick read on your current numbers:</b> Weight stable. CGM time-in-range is elite (99.9%). HR + SpO2 normal. <b>The one yellow flag is BP — your average 129/80 sits at Elevated→Stage 1 borderline.</b> Tuesday's home cuff reading will tell us if that's a 2024-era artifact or a current pattern worth addressing through supplement stack + cardio cadence.
+  </div>
+
   <div class="info-callout">
     <b>You're an ideal candidate.</b> Most patients in the Medesto cohort are managing chronic conditions and start with adherence penalties + medication side effects depressing their score. You start with no Rx burden — your Mental Health, Adherence, and Cardio dimensions can hit 90+ purely on lifestyle + tracking. The score ceiling is genuinely higher for you than for any of the Hilltop patients.
   </div>
@@ -288,16 +310,22 @@
       <thead><tr><th>Source</th><th>Status</th><th>Notes</th></tr></thead>
       <tbody>
         <tr><td><b>iOS Medesto app build</b></td><td><span class="tag good">Build 27/28 installed</span></td><td>Testing patient context — confirmed prior dispense + sync flow</td></tr>
-        <tr><td><b>Apple Watch</b></td><td><span class="tag warn">Reactivating this week</span></td><td>Off-wrist for several weeks — putting it back on; sleep + HR + HRV resume once worn 2-3 nights</td></tr>
+        <tr><td><b>Apple Watch</b></td><td><span class="tag warn">Reactivating this week</span></td><td>Off-wrist for several weeks; <b>last HR reading 2026-04-16</b> — resume once worn 2-3 nights</td></tr>
         <tr><td><b>HealthKit sync pipeline</b></td><td><span class="tag good">Verified working</span></td><td>Glucose / HR / sleep flow into Medesto API (Build 27 commit <code>84be4ad</code>)</td></tr>
-        <tr><td><b>Smart scale (Withings)</b></td><td><span class="tag warn">Connecting this week</span></td><td>Pending Withings Body+ or Body Scan setup → daily weight + body comp into HealthKit</td></tr>
-        <tr><td><b>BP cuff reading</b></td><td><span class="tag warn">Scheduled Tue 2026-05-27</span></td><td>First baseline reading committed; recommend weekly cadence after</td></tr>
-        <tr><td><b>Steps history</b></td><td><span class="tag warn">Pending Superset (Mon 8am)</span></td><td>Will pull lifetime steps + last 30-day trend</td></tr>
-        <tr><td><b>Sleep history</b></td><td><span class="tag warn">Pending Superset (Mon 8am)</span></td><td>Sleep gaps expected during off-wrist weeks</td></tr>
-        <tr><td><b>HR readings</b></td><td><span class="tag warn">Pending Superset (Mon 8am)</span></td><td>HR by hour pattern will populate after 2-3 days of Watch wear</td></tr>
+        <tr><td><b>Withings Body Pro scale</b></td><td><span class="tag good">Connected since 2022-04</span></td><td><b>548 weight readings · latest 184.3 lbs (2026-03-13).</b> Trend ~177→185 lbs over 4 yrs</td></tr>
+        <tr><td><b>Withings BPM Connect Pro</b></td><td><span class="tag good">Connected since 2022-03</span></td><td><b>485 BP readings · last 126/75 on 2025-10-22.</b> Lifetime avg 129/80 = borderline</td></tr>
+        <tr><td><b>Smart Meter BP cuff (SM5000-IB)</b></td><td><span class="tag good">Paired 2022 + 2025-11</span></td><td>Cellular BP cuff — backup to Withings; pending Tuesday baseline</td></tr>
+        <tr><td><b>Smart Meter pulse-ox (SMC-OX)</b></td><td><span class="tag good">Paired 2023</span></td><td>1,283 SpO2 readings — supplements Apple Watch SpO2</td></tr>
+        <tr><td><b>Smart Meter body scale (SMC-LBS)</b></td><td><span class="tag good">Paired 2025-10</span></td><td>Secondary scale — cellular sync alternative to Withings</td></tr>
+        <tr><td><b>Steps history</b></td><td><span class="tag good">2,307 records since 2025-10</span></td><td><b>Raw sums are inflated</b> (Apple Watch + iPhone + Oura double-counting in HealthKit) — needs source-dedup before scoring</td></tr>
+        <tr><td><b>Sleep history</b></td><td><span class="tag good">60 nights tracked</span></td><td><b>Avg 8.2 hrs · 95.8% efficiency</b> Jan–Apr 2026. Some 25+ hr entries are HealthKit "in-bed" passive misreads — exclude before averaging</td></tr>
+        <tr><td><b>HR readings</b></td><td><span class="tag good">5,249 readings since 2020</span></td><td>Lifetime avg 73 bpm · range 41–155 with activity. Last reading 2026-04-16</td></tr>
+        <tr><td><b>CGM (Dexcom)</b></td><td><span class="tag good">3,500 readings Jan–Feb 2026</span></td><td><b>Avg 97 mg/dL · TIR 99.9% · max 189.</b> 14-day rotation excellent metabolic baseline</td></tr>
+        <tr><td><b>Inhaler trial (2023)</b></td><td><span class="tag muted">1 reading 2023-02-16</span></td><td>One historical Medesto-Inhale test; peak flow 26 L/min · not active</td></tr>
+        <tr><td><b>Adherence log</b></td><td><span class="tag muted">6,582 events (testing data)</span></td><td>Mostly QA/testing regimens — not a measure of your real-life supplement adherence</td></tr>
         <tr><td><b>Labs</b></td><td><span class="tag bad">No EHR connected</span></td><td>U Michigan / Henry Ford MyChart via Apple Health Records (free), or Function Health annual ($499)</td></tr>
         <tr><td><b>Genomic (PGx, 23andMe)</b></td><td><span class="tag bad">None</span></td><td>Recommend one-time PGx + 23andMe</td></tr>
-        <tr><td><b>Body composition (DEXA)</b></td><td><span class="tag bad">None</span></td><td>Annual scan recommended; smart scale daily covers basics</td></tr>
+        <tr><td><b>Body composition (DEXA)</b></td><td><span class="tag bad">None recent</span></td><td>Last body-comp data is 2020 Withings (muscle 60.5kg / fat 14.1kg). Annual DEXA recommended</td></tr>
       </tbody>
     </table>
   </div>
